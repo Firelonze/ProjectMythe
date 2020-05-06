@@ -8,8 +8,14 @@ public class GenericEnemy : MonoBehaviour
     protected int health;
     protected int damage;
     protected int walkingSpeed;
-    protected int attackSpeed;
+    protected int turnSpeed;
+    protected float attackSpeed;
     protected STATES state;
+
+    protected float timer;
+
+    //animation related variables
+    protected Animator animator;
 
     //states of the Enemy
     protected enum STATES
@@ -19,9 +25,8 @@ public class GenericEnemy : MonoBehaviour
         ATTACK
     }
 
-    //target of this Enemy and target it will attempt to attack
+    //The target it will attempt to attack
     protected GameObject target;
-    protected Vector3 ownPosition;
     
     //distance between player and this Enemy
     protected float distance;
