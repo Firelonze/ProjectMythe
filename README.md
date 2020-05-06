@@ -1,8 +1,7 @@
-## Kingdom of the falling sun
+## [titel van jullie game]
 Project team: 6: Lucas Baneke, Bobby van Wordragen, Maria Glowacka, Teun Bruin, Adriaan van Pijkeren, Malik Straal, Robin van den Bor.
 
-Platform:
-[jullie platfom]
+Platform: PC
 
 ### Korte omschrijving van de game
 ...
