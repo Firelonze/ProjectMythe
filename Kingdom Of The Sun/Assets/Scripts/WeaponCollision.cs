@@ -9,6 +9,6 @@ public class WeaponCollision : MonoBehaviour
     {
         GameObject obj = collision.gameObject;
 
-        //obj.GetComponent<HealthHandler>().SubtractHealth(aNumber);
+        obj.GetComponent<ObjectHealth>().TakeDamage(1);
     }
 }
