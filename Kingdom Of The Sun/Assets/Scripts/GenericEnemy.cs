@@ -7,14 +7,15 @@ public class GenericEnemy : MonoBehaviour
     //base stats Enemy
     [SerializeField] protected int health;
     [SerializeField] protected int damage;
-    [SerializeField] protected int wonderingSpeed;
+    [SerializeField] protected int wanderingSpeed;
     [SerializeField] protected int chaseSpeed;
     [SerializeField] protected int turnSpeed;
-    [SerializeField] protected float attackSpeed;
+    [SerializeField] protected int attackSpeed;
+    [SerializeField] protected float attackDelay;
     [SerializeField] protected STATES state;
     [SerializeField] protected bool canAttack;
 
-    protected EnemyWeapon enemyWeapon;
+    [SerializeField] protected WeaponCollision weaponCollision;
 
     protected float timer;
 
@@ -24,7 +25,7 @@ public class GenericEnemy : MonoBehaviour
     //states of the Enemy
     protected enum STATES
     {
-        WONDERING,
+        WANDERING,
         CHASE,
         ATTACK
     }

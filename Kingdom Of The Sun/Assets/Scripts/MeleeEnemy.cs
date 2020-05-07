@@ -11,29 +11,33 @@ public class MeleeEnemy : GenericEnemy
     void Start()
     {
         canAttack = true;
-        state = STATES.WONDERING;
+        state = STATES.WANDERING;
         health = 100;
-        wonderingSpeed = 2;
-        chaseSpeed = 5;
-        attackSpeed = 4.0f;
+        wanderingSpeed = 1;
+        chaseSpeed = 2;
+        chaseSpeed = 2;
+        attackSpeed = 1;
         turnSpeed = 7;
     }
 
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > attackSpeed)
+        distance = Vector3.Distance(target.transform.position, transform.position);
+
+        if (timer > attackDelay)
         {
             canAttack = true;
-            
         }
-        
-        distance = Vector3.Distance(target.transform.position, transform.position);
-        if (distance > 2)
+        if(distance > 15)
+        {
+            state = STATES.WANDERING;
+        }
+        if (distance > 2 && distance < 15)
         {
             state = STATES.CHASE;
         }
-        else if (distance < 2 && canAttack == true)
+        else if (distance < 3 && canAttack == true)
         {
             state = STATES.ATTACK;
         }
@@ -44,21 +48,24 @@ public class MeleeEnemy : GenericEnemy
     {
         switch (state)
         {
-            case STATES.WONDERING:
+            case STATES.WANDERING:
 
                 break;
 
             case STATES.CHASE:
                 EnemyRotation();
-                transform.position += transform.forward * Time.deltaTime * chaseSpeed;
+                Walking(chaseSpeed);
                 break;
 
             case STATES.ATTACK:
-                state = STATES.WONDERING;
+                state = STATES.WANDERING;
                 canAttack = false;
                 timer = 0;
                 EnemyRotation();
-                Debug.Log("Attacking");
+                if(distance > 1.5f)
+                {
+                    Walking(attackSpeed);
+                }               
                 break;
         }
     }
@@ -69,5 +76,10 @@ public class MeleeEnemy : GenericEnemy
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, turnSpeed * Time.deltaTime).eulerAngles;
         transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+    }
+
+    private void Walking(int speed)
+    {
+        transform.position += transform.forward * Time.deltaTime * speed;
     }
 }
