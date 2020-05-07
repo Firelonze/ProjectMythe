@@ -11,6 +11,9 @@ public class GenericEnemy : MonoBehaviour
     protected int turnSpeed;
     protected float attackSpeed;
     protected STATES state;
+    protected bool canAttack;
+
+    protected EnemyWeapon enemyWeapon;
 
     protected float timer;
 

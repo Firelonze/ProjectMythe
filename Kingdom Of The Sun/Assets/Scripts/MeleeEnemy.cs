@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class MeleeEnemy : GenericEnemy
 {
-    void Start()
+    private void Awake()
     {
         target = GameObject.Find("target");
+    }
+    void Start()
+    {
+        canAttack = true;
         state = STATES.WONDERING;
         health = 100;
         walkingSpeed = 10;
         attackSpeed = 10;
-        turnSpeed = 5;
+        turnSpeed = 2;
     }
 
     void Update()
     {
         distance = Vector3.Distance(target.transform.position, transform.position);
         Debug.Log(distance);
-        if (distance < 1)
+        if (distance < 2 && canAttack)
         {
             state = STATES.ATTACK;
         }
-        if (distance < 10)
+        if (distance > 2 && distance < 10)
         {
             state = STATES.CHASE;
         }
@@ -38,7 +42,7 @@ public class MeleeEnemy : GenericEnemy
         switch (state)
         {
             case STATES.WONDERING:
-                
+
                 break;
 
             case STATES.CHASE:
@@ -50,15 +54,18 @@ public class MeleeEnemy : GenericEnemy
 
             case STATES.ATTACK:
                 Debug.Log("Attacking");
-                StartCoroutine(Attack(attackSpeed));                
+                StartCoroutine(Attack(attackSpeed));
                 break;
         }
     }
 
     private IEnumerator Attack(float speed)
     {
+        canAttack = false;
+
         //do attack
         yield return new WaitForSeconds(speed);
         Debug.Log("Yeet");
+        canAttack = true;
     }
 }
