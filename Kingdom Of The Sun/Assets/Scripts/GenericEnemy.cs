@@ -5,13 +5,14 @@ using UnityEngine;
 public class GenericEnemy : MonoBehaviour
 {
     //base stats Enemy
-    protected int health;
-    protected int damage;
-    protected int walkingSpeed;
-    protected int turnSpeed;
-    protected float attackSpeed;
-    protected STATES state;
-    protected bool canAttack;
+    [SerializeField] protected int health;
+    [SerializeField] protected int damage;
+    [SerializeField] protected int wonderingSpeed;
+    [SerializeField] protected int chaseSpeed;
+    [SerializeField] protected int turnSpeed;
+    [SerializeField] protected float attackSpeed;
+    [SerializeField] protected STATES state;
+    [SerializeField] protected bool canAttack;
 
     protected EnemyWeapon enemyWeapon;
 

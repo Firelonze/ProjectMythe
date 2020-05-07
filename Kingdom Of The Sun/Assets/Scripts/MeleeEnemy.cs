@@ -13,26 +13,29 @@ public class MeleeEnemy : GenericEnemy
         canAttack = true;
         state = STATES.WONDERING;
         health = 100;
-        walkingSpeed = 10;
-        attackSpeed = 10;
-        turnSpeed = 2;
+        wonderingSpeed = 2;
+        chaseSpeed = 5;
+        attackSpeed = 4.0f;
+        turnSpeed = 7;
     }
 
     void Update()
     {
-        distance = Vector3.Distance(target.transform.position, transform.position);
-        Debug.Log(distance);
-        if (distance < 2 && canAttack)
+        timer += Time.deltaTime;
+        if (timer > attackSpeed)
         {
-            state = STATES.ATTACK;
+            canAttack = true;
+            
         }
-        if (distance > 2 && distance < 10)
+        
+        distance = Vector3.Distance(target.transform.position, transform.position);
+        if (distance > 2)
         {
             state = STATES.CHASE;
         }
-        if (distance > 10)
+        else if (distance < 2 && canAttack == true)
         {
-            state = STATES.WONDERING;
+            state = STATES.ATTACK;
         }
         Movement();
     }
@@ -46,26 +49,25 @@ public class MeleeEnemy : GenericEnemy
                 break;
 
             case STATES.CHASE:
-                Vector3 dir = target.transform.position - transform.position;
-                Quaternion lookRotation = Quaternion.LookRotation(dir);
-                Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, turnSpeed * Time.deltaTime).eulerAngles;
-                transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+                EnemyRotation();
+                transform.position += transform.forward * Time.deltaTime * chaseSpeed;
                 break;
 
             case STATES.ATTACK:
+                state = STATES.WONDERING;
+                canAttack = false;
+                timer = 0;
+                EnemyRotation();
                 Debug.Log("Attacking");
-                StartCoroutine(Attack(attackSpeed));
                 break;
         }
     }
 
-    private IEnumerator Attack(float speed)
+    private void EnemyRotation()
     {
-        canAttack = false;
-
-        //do attack
-        yield return new WaitForSeconds(speed);
-        Debug.Log("Yeet");
-        canAttack = true;
+        Vector3 dir = target.transform.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, turnSpeed * Time.deltaTime).eulerAngles;
+        transform.rotation = Quaternion.Euler(0, rotation.y, 0);
     }
 }
