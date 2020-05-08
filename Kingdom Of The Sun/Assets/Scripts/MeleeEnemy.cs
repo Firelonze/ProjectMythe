@@ -13,7 +13,7 @@ public class MeleeEnemy : GenericEnemy
         canAttack = true;
         state = STATES.WANDERING;
         health = 100;
-        wanderingSpeed = 1;
+        wanderingSpeed = 2;
         chaseSpeed = 2;
         chaseSpeed = 2;
         attackSpeed = 1;
@@ -23,6 +23,7 @@ public class MeleeEnemy : GenericEnemy
     void Update()
     {
         timer += Time.deltaTime;
+
         distance = Vector3.Distance(target.transform.position, transform.position);
 
         if (timer > attackDelay)
