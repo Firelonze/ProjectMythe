@@ -21,7 +21,7 @@ public class ObjectHealth : MonoBehaviour
         health -= n;
         if(health <= 0)
         {
-            Animator animator = GetComponent<Animator>();
+            Animator animator = GetComponent<Animator>(); //or get component in children
             animator.SetInteger("IntName", 1 /*animation state*/);
             //display death animation
         }
