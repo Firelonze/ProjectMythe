@@ -11,4 +11,9 @@ public class AnimationHandler : MonoBehaviour
         animator.SetInteger("IntName", 1 /*animation state*/);
     }
 
+    private IEnumerator Death()
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        yield return new WaitForSeconds(clips[0 /* death anim clip number */].length);
+    }
 }
