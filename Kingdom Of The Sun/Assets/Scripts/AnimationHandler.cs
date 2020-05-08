@@ -8,7 +8,11 @@ public class AnimationHandler : MonoBehaviour
 
     public void setAnimation(int i)
     {
-        animator.SetInteger("IntName", 1 /*animation state*/);
+        animator.SetInteger("IntName", i /*animation state*/);
+        if(i == 0 /*Death Anim State*/)
+        {
+            StartCoroutine(Death());
+        }
     }
 
     private IEnumerator Death()
