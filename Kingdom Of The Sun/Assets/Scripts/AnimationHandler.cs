@@ -19,5 +19,6 @@ public class AnimationHandler : MonoBehaviour
     {
         AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
         yield return new WaitForSeconds(clips[0 /* death anim clip number */].length);
+        Destroy(gameObject);
     }
 }
