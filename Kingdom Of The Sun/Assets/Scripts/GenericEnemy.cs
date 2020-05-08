@@ -17,7 +17,7 @@ public class GenericEnemy : MonoBehaviour
 
     [SerializeField] protected WeaponCollision weaponCollision;
 
-    protected float timer;
+    protected float timer; 
 
     //animation related variables
     protected Animator animator;

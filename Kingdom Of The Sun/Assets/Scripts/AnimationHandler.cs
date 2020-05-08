@@ -6,6 +6,9 @@ public class AnimationHandler : MonoBehaviour
 {
     private Animator animator;
 
-
+    public void setAnimation(int i)
+    {
+        animator.SetInteger("IntName", 1 /*animation state*/);
+    }
 
 }
