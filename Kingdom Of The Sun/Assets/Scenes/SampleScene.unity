@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 1509948086}
   - component: {fileID: 1509948085}
   - component: {fileID: 1509948089}
+  - component: {fileID: 1509948088}
   - component: {fileID: 1509948084}
   m_Layer: 0
   m_Name: Enemy
@@ -390,6 +391,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1509948088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509948083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c1205e0050d4d4881720f1f6ed7ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1509948089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +415,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2402aba7fcf4a4fab1ac74bfc09221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  damage: 0
+  wanderingSpeed: 0
+  chaseSpeed: 0
+  turnSpeed: 0
+  attackSpeed: 0
+  attackDelay: 0
+  state: 0
+  canAttack: 0
+  weaponCollision: {fileID: 0}
 --- !u!1 &1686767381
 GameObject:
   m_ObjectHideFlags: 0

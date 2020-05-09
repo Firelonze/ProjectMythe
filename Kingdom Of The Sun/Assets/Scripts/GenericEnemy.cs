@@ -20,7 +20,7 @@ public class GenericEnemy : MonoBehaviour
     protected float timer; 
 
     //animation related variables
-    protected Animator animator;
+    protected AnimationHandler animationHandler;
 
     //states of the Enemy
     protected enum STATES

@@ -6,6 +6,7 @@ public class MeleeEnemy : GenericEnemy
 {
     private void Awake()
     {
+        animationHandler = GetComponent<AnimationHandler>();
         target = GameObject.Find("target");
     }
     void Start()
@@ -30,6 +31,7 @@ public class MeleeEnemy : GenericEnemy
         {
             canAttack = true;
         }
+
         if(distance > 15)
         {
             state = STATES.WANDERING;
@@ -66,7 +68,8 @@ public class MeleeEnemy : GenericEnemy
                 if(distance > 1.5f)
                 {
                     Walking(attackSpeed);
-                }               
+                }
+                animationHandler.setAnimation(0 /*attack animation number*/);
                 break;
         }
     }
