@@ -22,9 +22,9 @@ public class ObjectHealth : MonoBehaviour
         if(health <= 0)
         {
             AnimationHandler animator = GetComponentInParent<AnimationHandler>();
-            animator.setAnimation(0 /*a Number */);
-            
-            //display death animation
+            animator.setAnimation(0 /*a Number */); //display death animation
+
+
         }
     }
 }

@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class MeleeEnemy : GenericEnemy
 {
+    private int i;
+    [SerializeField] private Material[] debugMats;
     private void Awake()
     {
+        rend = GetComponent<Renderer>();
         animationHandler = GetComponent<AnimationHandler>();
-        target = GameObject.Find("target");
+        player = GameObject.Find("Player");
     }
     void Start()
     {
+        i = 0;
         canAttack = true;
         state = STATES.WANDERING;
         health = 100;
-        wanderingSpeed = 2;
-        chaseSpeed = 2;
+        wanderingSpeed = 4;
         chaseSpeed = 2;
         attackSpeed = 1;
         turnSpeed = 7;
@@ -25,7 +28,18 @@ public class MeleeEnemy : GenericEnemy
     {
         timer += Time.deltaTime;
 
-        distance = Vector3.Distance(target.transform.position, transform.position);
+        distance = Vector3.Distance(player.transform.position, transform.position);
+
+        waypointDistance = Vector3.Distance(waypoints[i].transform.position, transform.position);
+
+        if(waypointDistance < 1)
+        {
+            if(i == 3)
+            {
+                i = -1;
+            }
+            i++;
+        }
 
         if (timer > attackDelay)
         {
@@ -35,10 +49,12 @@ public class MeleeEnemy : GenericEnemy
         if(distance > 15)
         {
             state = STATES.WANDERING;
+            rend.material = debugMats[0];
         }
         if (distance > 2 && distance < 15)
         {
             state = STATES.CHASE;
+            rend.material = debugMats[1];
         }
         else if (distance < 3 && canAttack == true)
         {
@@ -52,11 +68,13 @@ public class MeleeEnemy : GenericEnemy
         switch (state)
         {
             case STATES.WANDERING:
-
+                target = waypoints[i].gameObject;
+                Walking(wanderingSpeed);
                 break;
 
             case STATES.CHASE:
-                EnemyRotation();
+                target = player;
+                
                 Walking(chaseSpeed);
                 break;
 
@@ -64,14 +82,14 @@ public class MeleeEnemy : GenericEnemy
                 state = STATES.WANDERING;
                 canAttack = false;
                 timer = 0;
-                EnemyRotation();
                 if(distance > 1.5f)
                 {
                     Walking(attackSpeed);
                 }
-                animationHandler.setAnimation(0 /*attack animation number*/);
+                //animationHandler.setAnimation(0 /*attack animation number*/);
                 break;
         }
+        EnemyRotation();
     }
 
     private void EnemyRotation()

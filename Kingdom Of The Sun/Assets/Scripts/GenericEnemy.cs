@@ -14,6 +14,12 @@ public class GenericEnemy : MonoBehaviour
     [SerializeField] protected float attackDelay;
     [SerializeField] protected STATES state;
     [SerializeField] protected bool canAttack;
+    [SerializeField] protected Transform[] waypoints;
+    [SerializeField] protected float waypointDistance;
+
+    [SerializeField] protected GameObject player;
+
+    protected Renderer rend;
 
     [SerializeField] protected WeaponCollision weaponCollision;
 
@@ -34,7 +40,7 @@ public class GenericEnemy : MonoBehaviour
     protected GameObject target;
     
     //distance between player and this Enemy
-    protected float distance;
+    [SerializeField] protected float distance;
 
     public void setHealth(int tempHealth)
     {
