@@ -14,6 +14,7 @@ public class MeleeEnemy : GenericEnemy
     }
     void Start()
     {
+        attackDelay = 2;
         i = 0;
         canAttack = true;
         state = STATES.WANDERING;
@@ -32,9 +33,9 @@ public class MeleeEnemy : GenericEnemy
 
         waypointDistance = Vector3.Distance(waypoints[i].transform.position, transform.position);
 
-        if(waypointDistance < 1)
+        if (waypointDistance < 1)
         {
-            if(i == 3)
+            if (i == 3)
             {
                 i = -1;
             }
@@ -46,20 +47,21 @@ public class MeleeEnemy : GenericEnemy
             canAttack = true;
         }
 
-        if(distance > 15)
+        if (distance > 15)
         {
             state = STATES.WANDERING;
             rend.material = debugMats[0];
-        }
-        if (distance > 2 && distance < 15)
-        {
-            state = STATES.CHASE;
-            rend.material = debugMats[1];
         }
         else if (distance < 3 && canAttack == true)
         {
             state = STATES.ATTACK;
         }
+        else if (distance > 2 && distance < 15)
+        {
+            state = STATES.CHASE;
+            rend.material = debugMats[1];
+        }
+
         Movement();
     }
 
@@ -74,15 +76,21 @@ public class MeleeEnemy : GenericEnemy
 
             case STATES.CHASE:
                 target = player;
-                
-                Walking(chaseSpeed);
+
+                if (distance > 1.5f)
+                {
+                    Walking(chaseSpeed);
+                }
                 break;
 
             case STATES.ATTACK:
-                state = STATES.WANDERING;
+                Debug.Log("attacking");
+                player.GetComponent<ObjectHealth>().TakeDamage(25);
+                //state &= ~STATES.ATTACK;
+                state = STATES.CHASE;
                 canAttack = false;
                 timer = 0;
-                if(distance > 1.5f)
+                if (distance > 1.5f)
                 {
                     Walking(attackSpeed);
                 }
