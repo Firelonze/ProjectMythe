@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 15
+  controlID: 43
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -303,6 +303,8 @@ MonoBehaviour:
   m_ViewTransforms:
     m_KeySerializationHelper:
     - {fileID: -2063358843152407176, guid: 22e4bcfed9b67e149ad22bc9cdee4c3b, type: 2}
+    - {fileID: -2884854235961088069, guid: 47c4a7deeb8ea1c47859fc5d92b0d5fd, type: 2}
+    - {fileID: 7174680452933179272, guid: 91692d02bdc7efa4999f45da87c8d6d3, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.58
       e01: 0
@@ -320,11 +322,43 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 0.46586448
+      e01: 0
+      e02: 0
+      e03: 50.666412
+      e10: 0
+      e11: 0.46586448
+      e12: 0
+      e13: 280.76355
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 0.4705263
+      e01: 0
+      e02: 0
+      e03: -8.526215
+      e10: 0
+      e11: 0.4705263
+      e12: 0
+      e13: 263.3
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 22e4bcfed9b67e149ad22bc9cdee4c3b,
+  m_AnimatorController: {fileID: 9100000, guid: 91692d02bdc7efa4999f45da87c8d6d3,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -2063358843152407176, guid: 22e4bcfed9b67e149ad22bc9cdee4c3b,
+  - m_Target: {fileID: 7174680452933179272, guid: 91692d02bdc7efa4999f45da87c8d6d3,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -403,11 +437,11 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Animations
+    - Assets/Model
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Animations
+  - Assets/Model
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Prace skolne 2019\Projekty\6. Mythe\ProjectMythe\Kingdom
     Of The Sun
@@ -415,9 +449,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 8e360000
-    m_LastClickedID: 13966
-    m_ExpandedIDs: 00000000fe34000000ca9a3b
+    m_SelectedIDs: 62350000
+    m_LastClickedID: 13666
+    m_ExpandedIDs: 000000005835000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -445,7 +479,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fe340000
+    m_ExpandedIDs: 0000000058350000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -473,7 +507,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000094360000
+    m_ExpandedInstanceIDs: c6230000943600009836000016370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -489,7 +523,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 3}
+      m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -568,9 +602,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 16370000
       m_LastClickedID: 0
-      m_ExpandedIDs: 3cfbffff
+      m_ExpandedIDs: 70fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -630,9 +664,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.7304375, y: 0.21175468, z: -0.28188848}
+    m_Target: {x: -0.93427134, y: 0.9296634, z: -0.46027827}
     speed: 2
-    m_Value: {x: -0.7304375, y: 0.21175468, z: -0.28188848}
+    m_Value: {x: -0.93427134, y: 0.9296634, z: -0.46027827}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -682,9 +716,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.07674212, y: 0.88916034, z: -0.16208448, w: -0.4209906}
   m_Size:
-    m_Target: 1.541936
+    m_Target: 2.441936
     speed: 2
-    m_Value: 1.541936
+    m_Value: 2.441936
   m_Ortho:
     m_Target: 0
     speed: 2
