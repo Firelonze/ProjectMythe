@@ -5,20 +5,20 @@ using UnityEngine;
 public class AudioHandler : MonoBehaviour
 {
     private AudioSource audioSource;
-    private AudioClip[] audioClips;
+    [SerializeField] private AudioClip[] audioClips;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void playAudio(int i)
+    public void PlayAudio(int i)
     {
         audioSource.clip = audioClips[i];
         audioSource.Play();
     }
 
-    public void stopAudio()
+    public void StopAudio()
     {
         audioSource.Stop();
     }
