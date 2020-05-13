@@ -24,4 +24,9 @@ public class AudioHandler : MonoBehaviour
     {
         sources[0].Stop();
     }
+
+    public void PlayAudioFootStep()
+    {
+
+    }
 }
