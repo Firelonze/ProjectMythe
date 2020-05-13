@@ -8,6 +8,7 @@ public class MeleeEnemy : GenericEnemy
     [SerializeField] private Material[] debugMats;
     private void Awake()
     {
+        audioHandler = GetComponent<AudioHandler>();
         rend = GetComponent<Renderer>();
         animationHandler = GetComponent<AnimationHandler>();
         player = GameObject.Find("Player");
@@ -29,40 +30,43 @@ public class MeleeEnemy : GenericEnemy
     {
         timer += Time.deltaTime;
 
-        distance = Vector3.Distance(player.transform.position, transform.position);
-
-        waypointDistance = Vector3.Distance(waypoints[i].transform.position, transform.position);
-
-        if (waypointDistance < 1)
+        if(target != null || player != null)
         {
-            if (i == 3)
+            distance = Vector3.Distance(player.transform.position, transform.position);
+
+            waypointDistance = Vector3.Distance(waypoints[i].transform.position, transform.position);
+
+            if (waypointDistance < 1)
             {
-                i = -1;
+                if (i == 3)
+                {
+                    i = -1;
+                }
+                i++;
             }
-            i++;
-        }
 
-        if (timer > attackDelay)
-        {
-            canAttack = true;
-        }
+            if (timer > attackDelay)
+            {
+                canAttack = true;
+            }
 
-        if (distance > 15)
-        {
-            state = STATES.WANDERING;
-            rend.material = debugMats[0];
-        }
-        else if (distance < 3 && canAttack == true)
-        {
-            state = STATES.ATTACK;
-        }
-        else if (distance > 2 && distance < 15)
-        {
-            state = STATES.CHASE;
-            rend.material = debugMats[1];
-        }
+            if (distance > 15)
+            {
+                state = STATES.WANDERING;
+                rend.material = debugMats[0];
+            }
+            else if (distance < 3 && canAttack == true)
+            {
+                state = STATES.ATTACK;
+            }
+            else if (distance > 2 && distance < 15)
+            {
+                state = STATES.CHASE;
+                rend.material = debugMats[1];
+            }
 
-        Movement();
+            Movement();
+        }
     }
 
     private void Movement()
@@ -81,9 +85,14 @@ public class MeleeEnemy : GenericEnemy
                 {
                     Walking(chaseSpeed);
                 }
+                else
+                {
+                    audioHandler.StopAudioFootsteps();
+                }
                 break;
 
             case STATES.ATTACK:
+                audioHandler.PlayAudioSFX(1);
                 Debug.Log("attacking");
                 player.GetComponent<ObjectHealth>().TakeDamage(25);
                 //state &= ~STATES.ATTACK;
@@ -93,6 +102,10 @@ public class MeleeEnemy : GenericEnemy
                 if (distance > 1.5f)
                 {
                     Walking(attackSpeed);
+                }
+                else
+                {
+
                 }
                 //animationHandler.setAnimation(0 /*attack animation number*/);
                 break;

@@ -21,7 +21,8 @@ public class GenericEnemy : MonoBehaviour
 
     protected Renderer rend;
 
-    [SerializeField] protected WeaponCollision weaponCollision;
+    protected WeaponCollision weaponCollision;
+    [SerializeField] protected AudioHandler audioHandler;
 
     protected float timer; 
 
