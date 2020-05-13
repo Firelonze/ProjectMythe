@@ -87,7 +87,7 @@ public class MeleeEnemy : GenericEnemy
                 }
                 else
                 {
-                    audioHandler.StopAudioFootsteps();
+                    //audioHandler.StopAudioFootsteps();
                 }
                 break;
 
