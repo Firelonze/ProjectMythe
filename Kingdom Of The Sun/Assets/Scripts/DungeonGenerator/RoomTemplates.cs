@@ -4,21 +4,8 @@ using UnityEngine;
 
 public class RoomTemplates : MonoBehaviour
 {
-    [SerializeField] protected GameObject[] topRooms;
-    [SerializeField] protected GameObject[] bottomRooms;
-    [SerializeField] protected GameObject[] rightRooms;
-    [SerializeField] protected GameObject[] leftRooms;
-
-    [SerializeField] protected GameObject closedRooms;
-
-    //Dictionary<int, List<GameObject>> Rooms = new Dictionary<int, List<GameObject>>();
-    private void Start()
-    {
-        //Rooms[1] = new List<GameObject>();
-        //Debug.Log(Rooms[1]);
-        //inventory[Keys.MACHINE_GUN] = new List<GameObject>();
-        //Rooms[1].Add(topRooms[0]);
-
-    }
-
+    [SerializeField] protected GameObject[] openTop;
+    [SerializeField] protected GameObject[] openRight;
+    [SerializeField] protected GameObject[] openBottom;
+    [SerializeField] protected GameObject[] openLeft;
 }

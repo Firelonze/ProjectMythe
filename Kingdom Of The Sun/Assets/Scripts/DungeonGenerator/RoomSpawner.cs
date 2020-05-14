@@ -1,63 +1,64 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class RoomSpawner : RoomTemplates
+public class RoomSpawner : Test
 {
-    [SerializeField]private int openingDirection = 1;
-    // 1 is top
-    // 2 is right
-    // 3 is bottom
-    // 4 is left
-
-    private int rand;
-    private bool spawned = false;
-    private float waitTime = 4f;
-    // Start is called before the first frame update
-    void Start()
+    private string arrayName;
+    private float x;
+    private float y;
+    private float z;
+    protected int rand;
+    protected bool spawned = false;
+    private void Start()
     {
-        Destroy(gameObject, waitTime);
-        Invoke("Spawn", 0.1f);
+        x = this.transform.position.x;
+        y = this.transform.position.y;
+        z = this.transform.position.z;
     }
-
-    // Update is called once per frame
-    void Spawn()
+    public void Spawn()
     {
-        if (spawned == false)
+        //Debug.Log(neededArray);
+        switch (arrayName)
         {
-            switch (openingDirection)
-            {
-                case 1:
-                    rand = Random.Range(0, topRooms.Length);
-                    Instantiate(topRooms[rand], transform.position, transform.rotation);
+            case "openBottom":
+                rand = Random.Range(0, openBottom.Length);
+                Instantiate(openBottom[rand], new Vector3(this.transform.position.x, y-0.5f, z += 1), Quaternion.identity);
+                y = this.transform.position.y;
+                z = this.transform.position.z;
+                arrayName = "";
+                //spawning = false;
                 break;
-                case 2:
-                    rand = Random.Range(0, rightRooms.Length);
-                    Instantiate(rightRooms[rand], transform.position, transform.rotation);
-                    break;
-                case 3:
-                    rand = Random.Range(0, bottomRooms.Length);
-                    Instantiate(bottomRooms[rand], transform.position, transform.rotation);
-                    break;
-                case 4:
-                    rand = Random.Range(0, leftRooms.Length);
-                    Instantiate(leftRooms[rand], transform.position, transform.rotation);
-                    break;
-            }
-            spawned = true;
-        }
+            case "openLeft":
+                rand = Random.Range(0, openLeft.Length);
+                Instantiate(openLeft[rand], new Vector3(x += 1, y - 0.5f, this.transform.position.z), Quaternion.identity);
+                x = this.transform.position.x;
+                y = this.transform.position.y;
+                arrayName = "";
+                //spawning = false;
+                break;
+            case "openTop":
+                rand = Random.Range(0, openTop.Length);
+                Instantiate(openTop[rand], new Vector3(this.transform.position.x, y - 0.5f, z -= 1), Quaternion.identity);
+                y = this.transform.position.y;
+                z = this.transform.position.z;
+                arrayName = "";
+                //spawning = false;
+                break;
+            case "openRight":
+                rand = Random.Range(0, openRight.Length);
+                Instantiate(openRight[rand], new Vector3(x -= 1, y - 0.5f, this.transform.position.z), Quaternion.identity);
+                x = this.transform.position.x;
+                y = this.transform.position.y;
+                arrayName = "";
+                //spawning = false;
+                break;
+        } 
     }
-    private void OnTriggerEnter(Collider other)
+    public void SetOpeningDirectionArray(string aDirection)
     {
-        if (other.CompareTag("SpawnPoint"))
-        {
-            if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
-            {
-                //blocks off opening
-                Instantiate(closedRooms, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
-            spawned = true;
-        }
+        arrayName = aDirection;
     }
 }
