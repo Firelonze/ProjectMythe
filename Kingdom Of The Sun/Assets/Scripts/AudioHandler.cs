@@ -11,10 +11,10 @@ public class AudioHandler : MonoBehaviour
 
     private void Start()
     {
-        sources = GetComponents<AudioSource>();
+        sources = GetComponentsInChildren<AudioSource>();
     }
 
-    public void PlayAudioSFX(int i)
+    public void PlayAudioSFX(int i = 0)
     {
         sources[0].clip = audioClips[i];
         sources[0].Play();
@@ -27,6 +27,8 @@ public class AudioHandler : MonoBehaviour
 
     public void PlayAudioFootStep()
     {
-
+        sources = GetComponentsInChildren<AudioSource>();
+        print(sources.Length);
+        sources[1].Play();
     }
 }

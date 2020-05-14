@@ -5,10 +5,16 @@ using UnityEngine;
 public class AnimationHandler : MonoBehaviour
 {
     private Animator animator;
+    Animation animationComp;
+
+    private void Start()
+    {
+        animationComp = GetComponent<Animation>();
+    }
 
     public void setAnimation(int i)
     {
-        animator.SetInteger("IntName", i /*animation state*/);
+        animator.SetInteger("AnimState", i /*animation state*/);
         if(i == 0 /*Death Anim State*/)
         {
             StartCoroutine(Death());

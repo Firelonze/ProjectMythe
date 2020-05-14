@@ -93,9 +93,8 @@ public class MeleeEnemy : GenericEnemy
 
             case STATES.ATTACK:
                 audioHandler.PlayAudioSFX(1);
-                Debug.Log("attacking");
+
                 player.GetComponent<ObjectHealth>().TakeDamage(25);
-                //state &= ~STATES.ATTACK;
                 state = STATES.CHASE;
                 canAttack = false;
                 timer = 0;
@@ -107,7 +106,7 @@ public class MeleeEnemy : GenericEnemy
                 {
 
                 }
-                //animationHandler.setAnimation(0 /*attack animation number*/);
+                //animationHandler.setAnimation(2);
                 break;
         }
         EnemyRotation();
