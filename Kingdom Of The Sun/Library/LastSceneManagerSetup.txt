@@ -1,9 +1,1 @@
-sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Mythe.unity
-=======
-- path: Assets/Scenes/SampleScene.unity
->>>>>>> Player
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
+sceneSetups: []
