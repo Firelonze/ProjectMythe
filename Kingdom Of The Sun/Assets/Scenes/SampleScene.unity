@@ -2025,7 +2025,6 @@ GameObject:
   - component: {fileID: 2257022868609432974}
   - component: {fileID: 6496506894939396098}
   - component: {fileID: 2957131643064881054}
-  - component: {fileID: 2957131643064881055}
   m_Layer: 0
   m_Name: Player_PH0.4
   m_TagString: Untagged
@@ -2048,28 +2047,6 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 677c173ff8a97804fa9fc783e751bd50, type: 3}
   - {fileID: 8300000, guid: d7b1fb0621e779240a0b28a16f9fb3e2, type: 3}
---- !u!111 &2957131643064881055
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2957131643064881053}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: fa4ac19c793c77d4da69740f79c45235, type: 2}
-  - {fileID: 7400000, guid: 9eeb72dcce4579041b5231e6e049ef30, type: 2}
-  - {fileID: 7400000, guid: 90050318abd0687429273389d11504f3, type: 2}
-  - {fileID: 7400000, guid: 75e31d6ec995fa743b64a7c09bc75505, type: 2}
-  - {fileID: 7400000, guid: 568502a570b990a4db85f5113ca6b141, type: 2}
-  - {fileID: 7400000, guid: f4032f4eb25dca341942628ffeb9e979, type: 2}
-  - {fileID: 7400000, guid: 2b9d0b8cb003b9d4b87111a329dddfb2, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!4 &2961674792888919135
 Transform:
   m_ObjectHideFlags: 0
@@ -3417,7 +3394,7 @@ Animator:
   m_GameObject: {fileID: 2957131643064881053}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ea978117c02b245408c8e32361d0ce5a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 91692d02bdc7efa4999f45da87c8d6d3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
