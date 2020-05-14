@@ -26,6 +26,7 @@ public class ObjectHealth : MonoBehaviour
 
     public void TakeDamage(int n)
     {
+        Debug.Log(health + ": " + gameObject.name);
         StartCoroutine(DebugHealth());
         health -= n;
         if(health <= 0)

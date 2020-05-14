@@ -19,7 +19,6 @@ public class MeleeEnemy : GenericEnemy
         i = 0;
         canAttack = true;
         state = STATES.WANDERING;
-        health = 100;
         wanderingSpeed = 4;
         chaseSpeed = 2;
         attackSpeed = 1;
@@ -53,7 +52,6 @@ public class MeleeEnemy : GenericEnemy
             if (distance > 15)
             {
                 state = STATES.WANDERING;
-                rend.material = debugMats[0];
             }
             else if (distance < 3 && canAttack == true)
             {
@@ -62,9 +60,7 @@ public class MeleeEnemy : GenericEnemy
             else if (distance > 2 && distance < 15)
             {
                 state = STATES.CHASE;
-                rend.material = debugMats[1];
             }
-
             Movement();
         }
     }
@@ -87,12 +83,12 @@ public class MeleeEnemy : GenericEnemy
                 }
                 else
                 {
-                    //audioHandler.StopAudioFootsteps();
+                    animationHandler.setAnimation(10);
                 }
                 break;
 
             case STATES.ATTACK:
-                audioHandler.PlayAudioSFX(1);
+                audioHandler.PlayAudioSFX(0);
 
                 player.GetComponent<ObjectHealth>().TakeDamage(25);
                 state = STATES.CHASE;
@@ -104,9 +100,8 @@ public class MeleeEnemy : GenericEnemy
                 }
                 else
                 {
-
+                    animationHandler.setAnimation(0);
                 }
-                //animationHandler.setAnimation(2);
                 break;
         }
         EnemyRotation();
@@ -122,6 +117,7 @@ public class MeleeEnemy : GenericEnemy
 
     private void Walking(int speed)
     {
+        animationHandler.setAnimation(2);
         transform.position += transform.forward * Time.deltaTime * speed;
     }
 }

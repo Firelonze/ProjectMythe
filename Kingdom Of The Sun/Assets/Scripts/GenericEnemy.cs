@@ -5,7 +5,6 @@ using UnityEngine;
 public class GenericEnemy : MonoBehaviour
 {
     //base stats Enemy
-    [SerializeField] protected int health;
     [SerializeField] protected int damage;
     [SerializeField] protected int wanderingSpeed;
     [SerializeField] protected int chaseSpeed;
@@ -42,14 +41,4 @@ public class GenericEnemy : MonoBehaviour
     
     //distance between player and this Enemy
     [SerializeField] protected float distance;
-
-    public void setHealth(int tempHealth)
-    {
-        health = tempHealth;
-    }
-
-    public void setDamage(int damage)
-    {
-        health -= damage;
-    }
 }
