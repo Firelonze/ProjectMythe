@@ -3,9 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags:
   - SpawnPoint
   - Rooms
+=======
+  tags: []
+>>>>>>> Player
   layers:
   - Default
   - TransparentFX
@@ -15,7 +19,11 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< HEAD
   - DungeonWall
+=======
+  - Ground
+>>>>>>> Player
   - 
   - 
   - 
