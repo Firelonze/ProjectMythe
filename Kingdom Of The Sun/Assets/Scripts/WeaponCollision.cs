@@ -8,6 +8,11 @@ public class WeaponCollision : MonoBehaviour
     {
         GameObject obj = collision.gameObject;
 
-        obj.GetComponent<ObjectHealth>().TakeDamage(1);
+        Debug.Log(collision.gameObject.name);
+
+        if(obj.GetComponent<ObjectHealth>() != null)
+        {
+            obj.GetComponent<ObjectHealth>().TakeDamage(50);
+        }
     }
 }

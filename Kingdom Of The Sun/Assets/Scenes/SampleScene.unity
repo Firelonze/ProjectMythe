@@ -526,7 +526,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -653,7 +653,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4f59769eddccc094587d653b3e4296e5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2821,6 +2821,8 @@ GameObject:
   - component: {fileID: 4515742192749447960}
   - component: {fileID: 580109032538309034}
   - component: {fileID: 2531689973384260027}
+  - component: {fileID: 4897969373781399376}
+  - component: {fileID: 4897969373781399377}
   m_Layer: 0
   m_Name: n__sword
   m_TagString: Untagged
@@ -2828,6 +2830,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &4897969373781399376
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897969373781399375}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10000023, y: 0.10000002, z: 0.100000456}
+  m_Center: {x: 0, y: 0.000000029802322, z: 0}
+--- !u!114 &4897969373781399377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897969373781399375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 792adacbc67acad4ea45ad9bddd7ed9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &4905751040336242149
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3406,7 +3433,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7516581253395377134}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.9897413, y: 1.8548875, z: -10.825189}
+  m_LocalPosition: {x: -1.91, y: 1.8548875, z: -10.825189}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1641609237}

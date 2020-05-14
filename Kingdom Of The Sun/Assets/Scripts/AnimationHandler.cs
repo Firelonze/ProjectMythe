@@ -15,7 +15,7 @@ public class AnimationHandler : MonoBehaviour
     public void setAnimation(int i)
     {
         animator.SetInteger("AnimState", i /*animation state*/);
-        if(i == 0 /*Death Anim State*/)
+        if(i == 0 /*whatever number is the death anim*/)
         {
             StartCoroutine(Death());
         }

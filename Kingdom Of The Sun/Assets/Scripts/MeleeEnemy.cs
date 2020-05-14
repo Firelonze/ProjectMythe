@@ -29,7 +29,7 @@ public class MeleeEnemy : GenericEnemy
     {
         timer += Time.deltaTime;
 
-        if(target != null || player != null)
+        if (target != null || player != null)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
 
@@ -63,10 +63,15 @@ public class MeleeEnemy : GenericEnemy
             }
             Movement();
         }
+        else
+        {
+            animationHandler.setAnimation(100);
+        }
     }
 
     private void Movement()
     {
+        animationHandler.setAnimation(100);
         switch (state)
         {
             case STATES.WANDERING:
@@ -77,7 +82,7 @@ public class MeleeEnemy : GenericEnemy
             case STATES.CHASE:
                 target = player;
 
-                if (distance > 1.5f)
+                if (distance > 0.75f)
                 {
                     Walking(chaseSpeed);
                 }
@@ -89,18 +94,17 @@ public class MeleeEnemy : GenericEnemy
 
             case STATES.ATTACK:
                 audioHandler.PlayAudioSFX(0);
-
-                player.GetComponent<ObjectHealth>().TakeDamage(25);
+                
                 state = STATES.CHASE;
                 canAttack = false;
                 timer = 0;
-                if (distance > 1.5f)
+                if (distance > 0.75f)
                 {
                     Walking(attackSpeed);
                 }
                 else
                 {
-                    animationHandler.setAnimation(0);
+                    animationHandler.setAnimation(3);
                 }
                 break;
         }
