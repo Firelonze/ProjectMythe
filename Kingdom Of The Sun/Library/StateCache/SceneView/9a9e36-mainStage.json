@@ -1,0 +1,31 @@
+{
+  "cameraMode": {
+    "drawMode": 0,
+    "name": "Shaded",
+    "section": "Shading Mode"
+  },
+  "sceneLighting": true,
+  "audioPlay": false,
+  "sceneViewState": {
+    "showFog": true,
+    "showMaterialUpdate": false,
+    "showSkybox": true,
+    "showFlares": true,
+    "showImageEffects": true,
+    "showParticleSystems": true
+  },
+  "in2DMode": false,
+  "pivot": {
+    "x": -2.4060935974121095,
+    "y": -7.603991508483887,
+    "z": 18.720792770385743
+  },
+  "rotation": {
+    "x": -0.2663516104221344,
+    "y": 0.6564955115318298,
+    "z": -0.2677934467792511,
+    "w": -0.652961254119873
+  },
+  "size": 51.14607238769531,
+  "orthographic": false
+}
