@@ -1,29 +1,195 @@
 fileFormatVersion: 2
 guid: f7ec5ed69f21c974cb475a87622bee69
 ModelImporter:
-  serializedVersion: 19300
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Idle
-  - first:
-      74: 2667949614841947897
-    second: Walk
-  - first:
-      74: 5539831331247536789
-    second: Jump
-  - first:
-      74: 6720303635017113406
-    second: Attack
-  - first:
-      74: -998496362607748373
-    second: Book
-  - first:
-      74: -3704289112126983070
-    second: Shoot
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: n__Chest
+    100002: n__Head
+    100004: n__head
+    100006: n__hips
+    100008: n__L_arm
+    100010: n__L_arm 1
+    100012: n__L_arm 2
+    100014: n__L_elbow
+    100016: n__L_elbow 1
+    100018: n__L_elbow 2
+    100020: n__L_fingers
+    100022: n__L_fingers 1
+    100024: n__L_foot
+    100026: n__L_foot 1
+    100028: n__L_foot 2
+    100030: n__L_hip
+    100032: n__L_hip 1
+    100034: n__L_knee
+    100036: n__L_knee 1
+    100038: n__L_knee 2
+    100040: n__L_leg
+    100042: n__L_toe
+    100044: n__L_toes
+    100046: n__L_wrist
+    100048: n__L_wrist 1
+    100050: n__L_wrist 2
+    100052: n__Lower_back
+    100054: n__Neck
+    100056: n__PELVIS
+    100058: n__Player_PH
+    100060: n__R_arm
+    100062: n__R_arm 1
+    100064: n__R_arm 2
+    100066: n__R_elbow
+    100068: n__R_elbow 1
+    100070: n__R_elbow 2
+    100072: n__R_fingers
+    100074: n__R_fingers 1
+    100076: n__R_foot
+    100078: n__R_foot 1
+    100080: n__R_foot 2
+    100082: n__R_hip
+    100084: n__R_hip 1
+    100086: n__R_knee
+    100088: n__R_knee 1
+    100090: n__R_knee 2
+    100092: n__R_leg
+    100094: n__R_toe
+    100096: n__R_toe 1
+    100098: n__R_wrist
+    100100: n__R_wrist 1
+    100102: n__R_wrist 2
+    100104: n__sword
+    100106: n__Sword_base
+    100108: n__Sword_tip
+    100110: n__torso
+    100112: n__upper_body
+    100114: //RootNode
+    400000: n__Chest
+    400002: n__Head
+    400004: n__head
+    400006: n__hips
+    400008: n__L_arm
+    400010: n__L_arm 1
+    400012: n__L_arm 2
+    400014: n__L_elbow
+    400016: n__L_elbow 1
+    400018: n__L_elbow 2
+    400020: n__L_fingers
+    400022: n__L_fingers 1
+    400024: n__L_foot
+    400026: n__L_foot 1
+    400028: n__L_foot 2
+    400030: n__L_hip
+    400032: n__L_hip 1
+    400034: n__L_knee
+    400036: n__L_knee 1
+    400038: n__L_knee 2
+    400040: n__L_leg
+    400042: n__L_toe
+    400044: n__L_toes
+    400046: n__L_wrist
+    400048: n__L_wrist 1
+    400050: n__L_wrist 2
+    400052: n__Lower_back
+    400054: n__Neck
+    400056: n__PELVIS
+    400058: n__Player_PH
+    400060: n__R_arm
+    400062: n__R_arm 1
+    400064: n__R_arm 2
+    400066: n__R_elbow
+    400068: n__R_elbow 1
+    400070: n__R_elbow 2
+    400072: n__R_fingers
+    400074: n__R_fingers 1
+    400076: n__R_foot
+    400078: n__R_foot 1
+    400080: n__R_foot 2
+    400082: n__R_hip
+    400084: n__R_hip 1
+    400086: n__R_knee
+    400088: n__R_knee 1
+    400090: n__R_knee 2
+    400092: n__R_leg
+    400094: n__R_toe
+    400096: n__R_toe 1
+    400098: n__R_wrist
+    400100: n__R_wrist 1
+    400102: n__R_wrist 2
+    400104: n__sword
+    400106: n__Sword_base
+    400108: n__Sword_tip
+    400110: n__torso
+    400112: n__upper_body
+    400114: //RootNode
+    2100000: lambert1
+    2300000: n__head
+    2300002: n__hips
+    2300004: n__L_arm 1
+    2300006: n__L_elbow 1
+    2300008: n__L_fingers
+    2300010: n__L_foot 2
+    2300012: n__L_hip 1
+    2300014: n__L_knee 2
+    2300016: n__L_toes
+    2300018: n__L_wrist 1
+    2300020: n__R_arm 1
+    2300022: n__R_elbow 1
+    2300024: n__R_fingers
+    2300026: n__R_foot 2
+    2300028: n__R_hip 1
+    2300030: n__R_knee 2
+    2300032: n__R_toe 1
+    2300034: n__R_wrist 1
+    2300036: n__sword
+    2300038: n__torso
+    3300000: n__head
+    3300002: n__hips
+    3300004: n__L_arm 1
+    3300006: n__L_elbow 1
+    3300008: n__L_fingers
+    3300010: n__L_foot 2
+    3300012: n__L_hip 1
+    3300014: n__L_knee 2
+    3300016: n__L_toes
+    3300018: n__L_wrist 1
+    3300020: n__R_arm 1
+    3300022: n__R_elbow 1
+    3300024: n__R_fingers
+    3300026: n__R_foot 2
+    3300028: n__R_hip 1
+    3300030: n__R_knee 2
+    3300032: n__R_toe 1
+    3300034: n__R_wrist 1
+    3300036: n__sword
+    3300038: n__torso
+    4300000: n__hips
+    4300002: n__torso
+    4300004: n__head
+    4300006: n__L_hip
+    4300008: n__L_knee
+    4300010: n__L_foot
+    4300012: n__L_toes
+    4300014: n__R_hip
+    4300016: n__R_knee
+    4300018: n__R_foot
+    4300020: n__R_toe
+    4300022: n__L_arm
+    4300024: n__L_elbow
+    4300026: n__L_wrist
+    4300028: n__L_fingers
+    4300030: n__R_arm
+    4300032: n__R_elbow
+    4300034: n__R_wrist
+    4300036: n__R_fingers
+    4300038: n__sword
+    7400000: Idle
+    7400002: Walk
+    7400004: Jump
+    7400006: Attack
+    7400008: Book
+    7400010: Shoot
+    9500000: //RootNode
   externalObjects: {}
   materials:
-    materialImportMode: 1
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -52,7 +218,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Idle
       takeName: Take 001
-      internalID: 0
       firstFrame: 1
       lastFrame: 30
       wrapMode: 0
@@ -81,7 +246,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Walk
       takeName: Take 001
-      internalID: 0
       firstFrame: 45
       lastFrame: 77
       wrapMode: 0
@@ -110,7 +274,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Jump
       takeName: Take 001
-      internalID: 0
       firstFrame: 90
       lastFrame: 114
       wrapMode: 0
@@ -139,7 +302,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Attack
       takeName: Take 001
-      internalID: 0
       firstFrame: 120
       lastFrame: 129
       wrapMode: 0
@@ -168,7 +330,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Book
       takeName: Take 001
-      internalID: 0
       firstFrame: 140
       lastFrame: 169
       wrapMode: 0
@@ -197,7 +358,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Shoot
       takeName: Take 001
-      internalID: 0
       firstFrame: 175
       lastFrame: 195
       wrapMode: 0
@@ -229,8 +389,6 @@ ModelImporter:
     globalScale: 10
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -238,31 +396,27 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.099999994
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -272,16 +426,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.099999994
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
