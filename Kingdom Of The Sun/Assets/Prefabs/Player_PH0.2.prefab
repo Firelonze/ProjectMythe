@@ -2646,7 +2646,7 @@ GameObject:
   - component: {fileID: 1136652557381453740}
   m_Layer: 0
   m_Name: Player_PH0.2
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2677,7 +2677,7 @@ Animator:
   m_GameObject: {fileID: 9000406939542096126}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 22e4bcfed9b67e149ad22bc9cdee4c3b, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1195899403592177955}
   m_Layer: 8
   m_Name: TBLR
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,6 +233,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ray
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555793307511560396, guid: 996fb96f32926674b8186d65dd75bb2c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 996fb96f32926674b8186d65dd75bb2c, type: 3}

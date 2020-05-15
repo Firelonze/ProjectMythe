@@ -18,27 +18,31 @@ public class Test : RoomTemplates
     void HitDetection()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, this.transform.forward, out hit, layer))
+        if (GameObject.Find("Room limiter").GetComponent<RoomLimiter>().roomSpanwerOff == true)
         {
-            //Debug.Log("hit");
-            StartCoroutine(Rotator());
-        }
-        else
-        {
-            //Debug.Log("no hit");
-            //if (spawning == false)
-            
-            //spawning = true;
-            //Debug.Log(spawning);
-            ChooseOpening();
-            
+
+            if (Physics.Raycast(transform.position, this.transform.forward, out hit, layer))
+            {
+                //Debug.Log("hit");
+                StartCoroutine(Rotator());
+            }
+            else
+            {
+                //Debug.Log("no hit");
+                //if (spawning == false)
+
+                //spawning = true;
+                //Debug.Log(spawning);
+                ChooseOpening();
+
+            }
         }
     }
-    void ChooseOpening() 
-    { 
+    void ChooseOpening()
+    {
         switch (rotationYPosition)
         {
-            case 0: 
+            case 0:
                 //neededArray = "openBottom";
                 roomSpawner.SetOpeningDirectionArray("openBottom");
                 roomSpawner.Spawn();
@@ -79,3 +83,5 @@ public class Test : RoomTemplates
         yield return new WaitForSeconds(0.1f);
     }
 }
+
+
