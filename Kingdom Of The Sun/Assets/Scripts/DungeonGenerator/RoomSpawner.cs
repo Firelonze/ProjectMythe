@@ -10,8 +10,7 @@ public class RoomSpawner : Test
     private float x;
     private float y;
     private float z;
-    protected int rand;
-    protected bool spawned = false;
+    private int rand;
     private void Start()
     {
         x = this.transform.position.x;

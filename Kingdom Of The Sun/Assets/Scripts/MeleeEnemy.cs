@@ -6,43 +6,37 @@ public class MeleeEnemy : GenericEnemy
 {
     private int i;
     [SerializeField] private Material[] debugMats;
-    private void Awake()
-    {
-        audioHandler = GetComponent<AudioHandler>();
-        rend = GetComponent<Renderer>();
-        animationHandler = GetComponent<AnimationHandler>();
-        player = GameObject.Find("Player");
-    }
+
     void Start()
     {
         attackDelay = 2;
         i = 0;
         canAttack = true;
         state = STATES.WANDERING;
-        wanderingSpeed = 4;
-        chaseSpeed = 2;
-        attackSpeed = 1;
+        wanderingSpeed = 2;
+        chaseSpeed = 1;
+        attackSpeed = 4;
         turnSpeed = 7;
     }
 
     void Update()
     {
         timer += Time.deltaTime;
-
+        target = player;
         if (target != null || player != null)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
 
-            waypointDistance = Vector3.Distance(waypoints[i].transform.position, transform.position);
+            //waypointDistance = Vector3.Distance(waypoints[i].transform.position, transform.position);
 
-            if (waypointDistance < 1)
+            /*if (waypointDistance < 1)
             {
                 if (i == 3)
                 {
                     i = -1;
                 }
                 i++;
-            }
+            }*/
 
             if (timer > attackDelay)
             {
@@ -75,14 +69,14 @@ public class MeleeEnemy : GenericEnemy
         switch (state)
         {
             case STATES.WANDERING:
-                target = waypoints[i].gameObject;
-                Walking(wanderingSpeed);
+                //target = null;
+                //Walking(wanderingSpeed);
                 break;
 
             case STATES.CHASE:
                 target = player;
 
-                if (distance > 0.75f)
+                if (distance > 0.50f)
                 {
                     Walking(chaseSpeed);
                 }
@@ -93,12 +87,12 @@ public class MeleeEnemy : GenericEnemy
                 break;
 
             case STATES.ATTACK:
-                audioHandler.PlayAudioSFX(0);
+                //audioHandler.PlayAudioSFX(0);
                 
                 state = STATES.CHASE;
                 canAttack = false;
                 timer = 0;
-                if (distance > 0.75f)
+                if (distance > 0.50f)
                 {
                     Walking(attackSpeed);
                 }

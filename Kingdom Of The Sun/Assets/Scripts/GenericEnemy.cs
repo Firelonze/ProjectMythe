@@ -41,4 +41,12 @@ public class GenericEnemy : MonoBehaviour
     
     //distance between player and this Enemy
     [SerializeField] protected float distance;
+
+    private void Awake()
+    {
+        //audioHandler = GetComponent<AudioHandler>();
+        rend = GetComponent<Renderer>();
+        animationHandler = GetComponent<AnimationHandler>();
+        player = GameObject.Find("Player");
+    }
 }

@@ -18,7 +18,7 @@ public class Test : RoomTemplates
     void HitDetection()
     {
         RaycastHit hit;
-        if (GameObject.Find("Room limiter").GetComponent<RoomLimiter>().roomSpanwerOff == true)
+        if (GameObject.Find("Room limiter").GetComponent<RoomLimiter>().roomSpanwerOff == false)
         {
 
             if (Physics.Raycast(transform.position, this.transform.forward, out hit, layer))
@@ -74,7 +74,6 @@ public class Test : RoomTemplates
         transform.Rotate(Vector3.up * 90);
         rotationYPosition = gameObject.transform.rotation.eulerAngles.y;
         Mathf.Round(rotationYPosition);
-        Debug.Log(rotationYPosition);
         stepCounter++;
         if (stepCounter >= 4)
         {

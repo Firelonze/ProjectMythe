@@ -5,12 +5,11 @@ using UnityEngine;
 public class ObjectHealth : MonoBehaviour
 {
     Renderer rend;
-    [SerializeField] private Material[] debugMat;
-    private int health;
+    public int health;
 
     private void Start()
     {
-        health = 100;
+        health = 200;
         rend = GetComponent<Renderer>();    
     }
 
@@ -26,21 +25,12 @@ public class ObjectHealth : MonoBehaviour
 
     public void TakeDamage(int n)
     {
-        Debug.Log(health + ": " + gameObject.name);
-        StartCoroutine(DebugHealth());
+        Debug.Log(gameObject.name + " health: " + health);
         health -= n;
         if(health <= 0)
         {
-            //AnimationHandler animator = GetComponentInParent<AnimationHandler>();
-            //animator.setAnimation(0 /*a Number */); //display death animation
+
             Destroy(gameObject);
         }
-    }
-
-    private IEnumerator DebugHealth()
-    {
-        rend.material = debugMat[0];
-        yield return new WaitForSeconds(0.3f);
-        rend.material = debugMat[1];
     }
 }

@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class WeaponCollision : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private ObjectHealth objectHealth;
+
+    private void Start()
     {
-        GameObject obj = collision.gameObject;
+        objectHealth = this.GetComponent<ObjectHealth>();
+    }
 
-        Debug.Log(collision.gameObject.name);
-
-        if(obj.GetComponent<ObjectHealth>() != null)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Weapon"))
         {
-            obj.GetComponent<ObjectHealth>().TakeDamage(50);
+            objectHealth.TakeDamage(25);
         }
     }
 }

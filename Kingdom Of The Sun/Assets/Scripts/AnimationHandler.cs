@@ -9,7 +9,7 @@ public class AnimationHandler : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void setAnimation(int i)
