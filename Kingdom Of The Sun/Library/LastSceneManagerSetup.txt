@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Mythe.unity
+- path: Assets/Scenes/BossRoomEnviroment.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

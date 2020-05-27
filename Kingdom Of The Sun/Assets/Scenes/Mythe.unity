@@ -431,7 +431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c8d569989dcfd84e9b9330dca0b6d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
 --- !u!54 &1518728442
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -498,20 +497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2402aba7fcf4a4fab1ac74bfc09221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  wanderingSpeed: 0
-  chaseSpeed: 0
-  turnSpeed: 0
-  attackSpeed: 0
-  attackDelay: 0
-  state: 0
-  canAttack: 0
-  waypoints: []
-  waypointDistance: 0
-  player: {fileID: 1575929935}
-  audioHandler: {fileID: 0}
-  distance: 0
-  debugMats: []
 --- !u!1 &1556646095
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,12 +575,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556646095}
   m_CullTransparentMesh: 0
---- !u!1 &1575929935 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5822892116716665281, guid: d6b1960056b3245459f7834ee0e664d8,
-    type: 3}
-  m_PrefabInstance: {fileID: 5822892115465564558}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1617237444
 GameObject:
   m_ObjectHideFlags: 0
