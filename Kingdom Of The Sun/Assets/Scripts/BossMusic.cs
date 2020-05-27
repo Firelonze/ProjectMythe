@@ -15,7 +15,7 @@ public class BossMusic : MonoBehaviour
         audioSource.GetComponent<AudioSource>();
     }
     
-    private void PlayAudio(audioClips[currentClip])
+    private void PlayAudio(AudioClip[currentClip])
     {
 
     }
