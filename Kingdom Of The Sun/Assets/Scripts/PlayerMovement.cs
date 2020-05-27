@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PlatformRotation platformRotation;
+
 	private float speed = 2f;
 	private float gravity = -19.62f;
-    private float yRotation;
-    private Vector3 playerPosition;
 	[SerializeField] private CharacterController controller;
     private float timer;
     private bool canAttack;
@@ -24,28 +22,28 @@ public class PlayerMovement : MonoBehaviour
 	Vector3 velocity;
 	void Start()
 	{
-        platformRotation = GetComponent<PlatformRotation>();
         animationHandler = GetComponent<AnimationHandler1>();
 		controller = GetComponent<CharacterController>();
 	}
 
 	void Update()
 	{
+        
         timer += Time.deltaTime;
         if(timer > 1.5f)
         {
             canAttack = true;
         }
         movement();
-
         if (Input.GetMouseButtonDown(0)) 
         {
             animationHandler.setAnimation(3);
             timer = 0;
             canAttack = false;
             StartCoroutine(AnimationFix());
+
         }
-	}
+    }
 
     void movement()
     {
@@ -66,8 +64,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Vector3 move = transform.right * x + transform.forward * z;
-        yRotation = this.transform.rotation.y;
-        playerPosition = this.transform.position;
+
         controller.Move(move * speed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -78,19 +75,12 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
-
     }
 
     private IEnumerator AnimationFix()
     {
         yield return new WaitForSeconds(0.2f);
         animationHandler.setAnimation(100);
-    }
-
-   private void GetPlayerVectors()
-    {
-        platformRotation.SetPlayerPosition(playerPosition);
-        platformRotation.SetPlayerRotation(yRotation);
     }
 }
 
