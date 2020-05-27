@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    [SerializeField] public Transform camTransform;
+    private Transform camTransform;
 
-    [SerializeField] public float shakeDuration = 0f;
+    private float shakeDuration = 0f;
 
-    [SerializeField] float shakeAmount;
-    [SerializeField] float decreaseFactor = 1.0f;
+    private float shakeAmount;
+    private float decreaseFactor = 1.0f;
 
     Vector3 originalPos;
 

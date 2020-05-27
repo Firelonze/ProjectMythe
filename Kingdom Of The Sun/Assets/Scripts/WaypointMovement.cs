@@ -16,7 +16,7 @@ public class WaypointMovement : MonoBehaviour
 
     private void Awake()
     {
-        waypoints = GameObject.FindGameObjectsWithTag("TezcoWaypoints");
+        waypoints = GameObject.FindGameObjectsWithTag("TezcaWaypoints");
     }
 
     private void Update()

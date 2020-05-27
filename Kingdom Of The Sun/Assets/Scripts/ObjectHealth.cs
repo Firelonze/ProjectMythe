@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectHealth : MonoBehaviour
 {
-    Renderer rend;
+    private Renderer rend;
     public int health;
 
     private void Start()
