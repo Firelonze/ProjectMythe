@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class MeleeEnemy : GenericEnemy
 {
-    private int i;
     [SerializeField] private Material[] debugMats;
 
     void Start()
     {
         attackDelay = 2;
-        i = 0;
         canAttack = true;
         state = STATES.WANDERING;
         wanderingSpeed = 2;
