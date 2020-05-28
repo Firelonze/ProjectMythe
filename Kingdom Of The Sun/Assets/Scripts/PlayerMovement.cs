@@ -14,7 +14,9 @@ public class PlayerMovement : MonoBehaviour
 	public LayerMask groundMask;
 	private bool isGrounded;
 
-	Vector3 velocity;
+	public Vector3 velocity;
+
+	bool roll;
 	void Start()
 	{
 		controller = GetComponent<CharacterController>();
@@ -26,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
 		if (isGrounded && velocity.y < 0) 
 		{
-			velocity.y = -0f;
+			velocity.y = -2f;
 		}
 
 		float x = Input.GetAxis("Horizontal");
@@ -40,9 +42,27 @@ public class PlayerMovement : MonoBehaviour
 		{
 			velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 		}
-
 		velocity.y += gravity * Time.deltaTime;
-
 		controller.Move(velocity * Time.deltaTime);
+
+		if (Input.GetKeyDown(KeyCode.LeftControl) && !roll) 
+		{
+			roll = true;
+			StartCoroutine(Dodge());
+		}
+
+		if (Input.GetKeyDown(KeyCode.LeftShift)) 
+		{
+			//animatie
+		}
+	}
+
+	IEnumerator Dodge() 
+	{
+		speed = 10;
+		//animatie
+		yield return new WaitForSeconds(1);
+		speed = 5;
+		roll = false;
 	}
 }
