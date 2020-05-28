@@ -5,11 +5,11 @@ using UnityEngine;
 public class BossTrain : MonoBehaviour
 {
     bool allowedToStart;
-    Rigidbody rigidbody;
+    Rigidbody rb;
     float speed = 10.0f;
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         StartCoroutine(start());
     }
 
@@ -17,7 +17,7 @@ public class BossTrain : MonoBehaviour
     {
         if (allowedToStart) 
         {
-            rigidbody.velocity = transform.forward * speed * Time.deltaTime;
+            rb.velocity = transform.forward * speed * Time.deltaTime;
         }
     }
 
