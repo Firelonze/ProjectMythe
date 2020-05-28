@@ -365,6 +365,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02e88b72ef652fd47a46613d20dda71b, type: 3}
+--- !u!1001 &2501072751477575123
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 358032276728686122, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358032276728686122, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358032276728686122, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358032276728686122, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358032276728686122, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358032276728686122, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358032276728686122, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 358032276728686122, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 358032276728686122, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358032276728686122, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358032276728686122, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3651475563008185401, guid: 65a22bbe9a804c44195c5f78ffd18884,
+        type: 3}
+      propertyPath: m_Name
+      value: Bossroom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 65a22bbe9a804c44195c5f78ffd18884, type: 3}
 --- !u!1001 &5434225660735099744
 PrefabInstance:
   m_ObjectHideFlags: 0
