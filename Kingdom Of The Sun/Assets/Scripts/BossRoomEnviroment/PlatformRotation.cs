@@ -41,7 +41,7 @@ public class PlatformRotation : PlayerSpeedTracker
             }
             else if(clockWise == false)
             {
-                transform.Rotate(0, (movesSpeed /= 3) *1, 0);
+                transform.Rotate(0, (movesSpeed /= 3) *-1, 0);
             }
         }
     }
