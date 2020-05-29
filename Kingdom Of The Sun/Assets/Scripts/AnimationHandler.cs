@@ -5,7 +5,6 @@ using UnityEngine;
 public class AnimationHandler : MonoBehaviour
 {
     private Animator animator;
-    Animation animationComp;
 
     private void Start()
     {

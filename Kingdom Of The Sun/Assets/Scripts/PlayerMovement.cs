@@ -4,44 +4,64 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-	private float speed = 2f;
-	private float gravity = -19.62f;
-	[SerializeField] private CharacterController controller;
+    private bool roll = false; 
+    private float speed = 2f;
+    private float gravity = -19.62f;
+    [SerializeField] private CharacterController controller;
     private float timer;
     private bool canAttack;
-    
-	private float jumpHeight = 0.5f;
-    private AnimationHandler1 animationHandler;
 
-	public Transform groundCheck;
-	private float groundDistance = 0.4f;
-	public LayerMask groundMask;
-	private bool isGrounded;
+    [SerializeField] private PlayerSpeedTracker st;
 
-	public Vector3 velocity;
-	void Start()
-	{
-        animationHandler = GetComponent<AnimationHandler1>();
-		controller = GetComponent<CharacterController>();
-	}
+    private float jumpHeight = 0.5f;
+    private AnimationHandler animationHandler;
 
-	void Update()
-	{
-        
+    public Transform groundCheck;
+    private float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    private bool isGrounded;
+
+    public Vector3 velocity;
+    void Start()
+    {
+        animationHandler = GetComponent<AnimationHandler>();
+        controller = GetComponent<CharacterController>();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+
+        }
+
         timer += Time.deltaTime;
-        if(timer > 1.5f)
+        if (timer > 1.5f)
         {
             canAttack = true;
         }
         movement();
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
-            animationHandler.setAnimation(3);
             timer = 0;
             canAttack = false;
-            StartCoroutine(AnimationFix());
-
+            animationHandler.setAnimation(4);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !roll)
+        {
+            roll = true;
+            StartCoroutine(Dodge());
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if(st.GetSpeed() >= 0)
+            {
+                animationHandler.setAnimation(12);
+            }
+            else
+            {
+                animationHandler.setAnimation(11);
+            }
         }
     }
 
@@ -57,10 +77,9 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        if(x > 0 || z > 0)
+        if (x > 0 || z > 0)
         {
-            animationHandler.setAnimation(2);
-            StartCoroutine(AnimationFix());
+            animationHandler.setAnimation(11);
         }
 
         Vector3 move = transform.right * x + transform.forward * z;
@@ -77,10 +96,13 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    private IEnumerator AnimationFix()
+    IEnumerator Dodge()
     {
-        yield return new WaitForSeconds(0.2f);
-        animationHandler.setAnimation(100);
+        speed = 10;
+        animationHandler.setAnimation(6);
+        yield return new WaitForSeconds(1);
+        speed = 5;
+        roll = false;
     }
 }
 

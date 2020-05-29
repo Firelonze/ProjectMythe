@@ -22,7 +22,7 @@ public class BloodEffects : MonoBehaviour
         BloodEffect();
     }
 
-    private void BloodEffect()
+    public void BloodEffect()
     {
         randomizer = Random.Range(0, 2);
         image.sprite = images[randomizer];

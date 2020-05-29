@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/BossRoomEnviroment.unity
+    guid: f86d68e57c034c148bae445001739a00
   m_configObjects: {}

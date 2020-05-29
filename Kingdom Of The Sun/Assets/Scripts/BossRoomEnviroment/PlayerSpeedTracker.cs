@@ -15,10 +15,7 @@ public class PlayerSpeedTracker : MonoBehaviour
     {
         StartCoroutine(CalcVelocity());
     }
-    private void Update()
-    {
-        
-    }
+
     IEnumerator CalcVelocity()
     {
         while (Application.isPlaying)
@@ -27,5 +24,10 @@ public class PlayerSpeedTracker : MonoBehaviour
             yield return new WaitForFixedUpdate();
             movesSpeed = Mathf.RoundToInt(Vector3.Distance(player.transform.position, lastPos) / Time.fixedDeltaTime);
         }
+    }
+
+    public int GetSpeed()
+    {
+        return movesSpeed;
     }
 }

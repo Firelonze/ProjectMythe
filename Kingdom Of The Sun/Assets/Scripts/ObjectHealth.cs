@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectHealth : MonoBehaviour
 {
     private Renderer rend;
+    private BloodEffects bloodEffects;
     public int health;
 
     private void Start()
@@ -29,8 +30,12 @@ public class ObjectHealth : MonoBehaviour
         health -= n;
         if(health <= 0)
         {
-
             Destroy(gameObject);
+        }
+        if(gameObject.name.Equals("Player"))
+        {
+            bloodEffects = GameObject.Find("Image").GetComponent<BloodEffects>();
+            bloodEffects.BloodEffect();
         }
     }
 }

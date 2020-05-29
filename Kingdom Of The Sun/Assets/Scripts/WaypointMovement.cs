@@ -4,47 +4,44 @@ using UnityEngine;
 
 public class WaypointMovement : MonoBehaviour
 {
-    private GameObject[] waypoints;
+    [SerializeField] private GameObject[] waypoints;
     private int currentWaypoint;
     [SerializeField] private int turnSpeed = 7;
     AudioHandler audiohandler;
     private float waypointDistance;
-
-    private float timer;
+    private bool canMove;
 
     private Transform target;
 
     private void Awake()
     {
-        waypoints = GameObject.FindGameObjectsWithTag("TezcaWaypoints");
+        waypoints = GameObject.FindGameObjectsWithTag("TezcaWay");
+        target = waypoints[currentWaypoint].transform;
+        canMove = true;
     }
 
     private void Update()
     {
         waypointDistance = Vector3.Distance(waypoints[currentWaypoint].transform.position, transform.position);
-
-
-        timer += Time.deltaTime;
-
-        if(timer < 4)
+        
+        if (waypointDistance < 2)
         {
-            Floating();
-        }
-        else
-        {
-            if (waypointDistance < 1)
+            if (currentWaypoint == waypoints.Length - 1)
             {
-                if (currentWaypoint == waypoints.Length)
-                {
-                    currentWaypoint = -1;
-                }
-                currentWaypoint++;
-                timer = 0;
+                currentWaypoint = -1;
             }
+            currentWaypoint++;
+            target = waypoints[currentWaypoint].transform;
+            Debug.Log(currentWaypoint);
+            StartCoroutine(timeOut());
+        }
+        if(canMove)
+        {
             EnemyRotation();
-            Walking(4);
+            Walking(10);
         }
     }
+
 
     private void EnemyRotation()
     {
@@ -59,8 +56,10 @@ public class WaypointMovement : MonoBehaviour
         transform.position += transform.forward * Time.deltaTime * speed;
     }
 
-    private void Floating()
+    private IEnumerator timeOut()
     {
-        transform.position = new Vector3(0, Mathf.Sin(Time.time * 3) / Mathf.PI / 7, 0);
+        canMove = false;
+        yield return new WaitForSeconds(1);
+        canMove = true;
     }
 }
