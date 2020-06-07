@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BossAttacks : MonoBehaviour
 {
-    bool BossActive = false;
-    bool Attacking = false;
-    int deurKeuze;
-    AnimationHandler animHandler;
-    Animator animator;
+    private bool BossActive = false;
+    private bool Attacking = false;
+    private int deurKeuze;
+    private AnimationHandler animHandler;
+    private Animator animator;
 
     [SerializeField] private GameObject BossPrefab; 
 

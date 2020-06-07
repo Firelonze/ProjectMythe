@@ -6,6 +6,8 @@ public class WeaponCollision : MonoBehaviour
 {
     private ObjectHealth objectHealth;
 
+    private int damage;
+
     private void Start()
     {
         objectHealth = this.GetComponent<ObjectHealth>();
@@ -15,7 +17,12 @@ public class WeaponCollision : MonoBehaviour
     {
         if (other.CompareTag("Weapon"))
         {
-            objectHealth.TakeDamage(25);
+            objectHealth.TakeDamage(damage);
         }
+    }
+
+    public void setDamage(int tempDamage)
+    {
+        damage = tempDamage;
     }
 }
