@@ -17,11 +17,11 @@ public class SnakeEnemy : GenericEnemy
     private void Start()
     {
         weaponCollision.setDamage(damage);
-        attackDelay = 2;
+        attackDelay = 5;
         canAttack = true;
         state = STATES.WANDERING;
         wanderingSpeed = 2;
-        chaseSpeed = 1;
+        chaseSpeed = 3;
         attackSpeed = 4;
         turnSpeed = 7;
     }
@@ -29,16 +29,17 @@ public class SnakeEnemy : GenericEnemy
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(player.transform.position, transform.position);
+        distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
         timer += Time.deltaTime;
 
-        if (distance < 15)
+        if (distance < 30)
         {
-            if (distance < 3 && canAttack == true)
+            print("Distance < 15");
+            if (distance < 3f)
             {
                 state = STATES.ATTACK;
             }
-            else if (distance > 2 && distance < 15)
+            else if (distance > 3f && distance < 30)
             {
                 state = STATES.CHASE;
             }
@@ -76,24 +77,19 @@ public class SnakeEnemy : GenericEnemy
 
             case STATES.CHASE:
                 target = player;
-
-                if (distance > 0.50f)
-                {
-                    Walking(chaseSpeed);
-                }
+                Walking(chaseSpeed);
                 break;
 
             case STATES.ATTACK:
-                state = STATES.CHASE;
-                canAttack = false;
-                timer = 0;
-                if (distance > 0.50f)
+                if (canAttack == true)
                 {
-                    Walking(attackSpeed);
+                    animationHandler.setAnimation(1);
+                    canAttack = false;
+                    timer = 0;
                 }
                 else
                 {
-                    animationHandler.setAnimation(1);
+                    animationHandler.setAnimation(100);
                 }
                 break;
         }
