@@ -12,12 +12,12 @@ public class GenericEnemy : MonoBehaviour
     [SerializeField] protected int turnSpeed;
     [SerializeField] protected int attackSpeed;
     [SerializeField] protected float attackDelay;
-    [SerializeField] protected STATES state;
     [SerializeField] protected bool canAttack;
     [SerializeField] protected Transform[] waypoints;
     [SerializeField] protected Transform curWaypoint;
     [SerializeField] protected float waypointDistance;
     [SerializeField] protected int currentWaypoint;
+    protected ObjectHealth objHealth;
 
     [SerializeField] protected Transform player;
 
@@ -36,9 +36,17 @@ public class GenericEnemy : MonoBehaviour
     {
         WANDERING,
         CHASE,
-        ATTACK,
-        RAGE
+        ATTACK
     }
+    [SerializeField] protected STATES state;
+
+    protected enum RAGE_STATES
+    {
+        RAGE_WANDERING,
+        RAGE_CHASE,
+        RAGE_ATTACK
+    }
+    [SerializeField] protected RAGE_STATES rageState;
 
     //The target it will attempt to attack
     protected Transform target;

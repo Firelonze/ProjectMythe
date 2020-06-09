@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SnakeEnemy : GenericEnemy
 {
-    private ObjectHealth objHealth;
+    
 
     private void Awake()
     {
