@@ -5394,7 +5394,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296172669162304324}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a76a0e7bd8eb3b42a78a55651cd7c31, type: 3}
   m_Name: 
@@ -5414,7 +5414,6 @@ MonoBehaviour:
   audioHandler: {fileID: 0}
   animationHandler: {fileID: 0}
   state: 0
-  rageState: 0
   distance: 0
 --- !u!95 &8296172669162304326
 Animator:
@@ -5426,7 +5425,7 @@ Animator:
   m_GameObject: {fileID: 8296172669162304324}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4bd75a47d76bc54e82465e0188315bf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
