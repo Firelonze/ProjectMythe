@@ -26,4 +26,14 @@ public class AnimationHandler : MonoBehaviour
         yield return new WaitForSeconds(clips[0 /* death anim clip number */].length);
         Destroy(gameObject);
     }
+
+    public void PauseAnim(bool temp_bool)
+    {
+        animator.enabled = temp_bool;
+    }
+
+    public float getAnimationClipLength()
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).length;
+    }
 }

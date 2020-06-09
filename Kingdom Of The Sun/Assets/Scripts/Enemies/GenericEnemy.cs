@@ -36,17 +36,14 @@ public class GenericEnemy : MonoBehaviour
     {
         WANDERING,
         CHASE,
-        ATTACK
-    }
-    [SerializeField] protected STATES state;
-
-    protected enum RAGE_STATES
-    {
+        ATTACK,
         RAGE_WANDERING,
         RAGE_CHASE,
-        RAGE_ATTACK
+        RAGE_ATTACK,
+        IDLE,
+        RAGE_IDLE
     }
-    [SerializeField] protected RAGE_STATES rageState;
+    [SerializeField] protected STATES state;
 
     //The target it will attempt to attack
     protected Transform target;

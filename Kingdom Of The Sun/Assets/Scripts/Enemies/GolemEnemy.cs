@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class GolemEnemy : GenericEnemy
 {
+    private bool isRaged;
+    private bool canRage;
     private void Awake()
     {
+        isRaged = false;
         objHealth = GetComponent<ObjectHealth>();
         weaponCollision = GetComponentInChildren<WeaponCollision>();
         audioHandler = GetComponent<AudioHandler>();
@@ -18,7 +21,6 @@ public class GolemEnemy : GenericEnemy
         attackDelay = 5;
         canAttack = true;
         state = STATES.WANDERING;
-        rageState = RAGE_STATES.
         wanderingSpeed = 2;
         chaseSpeed = 3;
         attackSpeed = 4;
@@ -30,22 +32,16 @@ public class GolemEnemy : GenericEnemy
     {
         distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
         timer += Time.deltaTime;
-
-        if (distance < 30)
+        
+        if(distance < 5 && !isRaged && canRage)
         {
-            print("Distance < 15");
-            if (distance < 3f)
-            {
-                state = STATES.ATTACK;
-            }
-            else if (distance > 3f && distance < 30)
-            {
-                state = STATES.CHASE;
-            }
+            animationHandler.setAnimation(1);
+            isRaged = true;
         }
-        else
+        if(distance < 15 && isRaged)
         {
-            state = STATES.WANDERING;
+            animationHandler.setAnimation(1);
+            state = STATES.RAGE_CHASE;
         }
 
         if (timer > attackDelay)
@@ -60,39 +56,34 @@ public class GolemEnemy : GenericEnemy
     {
         switch (state)
         {
+            case STATES.IDLE:
+
+                break;
+
+            case STATES.RAGE_IDLE:
+
+                break;
+
             case STATES.WANDERING:
-                waypointDistance = Vector3.Distance(waypoints[currentWaypoint].transform.position, transform.position);
-                target = waypoints[currentWaypoint].transform;
-                if (waypointDistance < 2)
-                {
-                    if (currentWaypoint == waypoints.Length - 1)
-                    {
-                        currentWaypoint = -1;
-                    }
-                    currentWaypoint++;
-                }
-                Walking(wanderingSpeed);
+
+                break;
+
+            case STATES.RAGE_WANDERING:
+
                 break;
 
             case STATES.CHASE:
-                target = player;
-                Walking(chaseSpeed);
+
                 break;
 
-            case STATES.ATTACK:
-                if (canAttack == true)
-                {
-                    animationHandler.setAnimation(1);
-                    canAttack = false;
-                    timer = 0;
-                }
-                else
-                {
-                    animationHandler.setAnimation(100);
-                }
+            case STATES.RAGE_CHASE:
+
+                break;
+
+            case STATES.RAGE_ATTACK:
+
                 break;
         }
-        EnemyRotation();
     }
 
     private void EnemyRotation()
