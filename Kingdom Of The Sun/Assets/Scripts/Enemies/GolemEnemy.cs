@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GolemEnemy : GenericEnemy
 {
-    private bool isRaged;
     private bool canRage;
+    private bool isRaged;
+    private float rageTimer;
     private void Awake()
     {
-        isRaged = false;
         objHealth = GetComponent<ObjectHealth>();
         weaponCollision = GetComponentInChildren<WeaponCollision>();
         audioHandler = GetComponent<AudioHandler>();
@@ -17,6 +17,7 @@ public class GolemEnemy : GenericEnemy
 
     private void Start()
     {
+        animationHandler.PauseAnim(false);
         weaponCollision.setDamage(damage);
         attackDelay = 5;
         canAttack = true;
@@ -32,19 +33,38 @@ public class GolemEnemy : GenericEnemy
     {
         distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
         timer += Time.deltaTime;
-        
-        if(distance < 5 && !isRaged && canRage)
+        rageTimer += Time.deltaTime;
+
+        if(distance < 15 && canRage)
         {
-            animationHandler.setAnimation(1);
             isRaged = true;
+            canRage = false;
+            StartCoroutine(RageCooldown());
+            animationHandler.PauseAnim(true);
         }
-        if(distance < 15 && isRaged)
+        if(isRaged && distance < 2 && canAttack)
         {
-            animationHandler.setAnimation(1);
+            state = STATES.ATTACK;
+        }
+        else if (isRaged && !canAttack)
+        {
+            state = STATES.RAGE_IDLE;
+        }
+        else if(isRaged && distance < 15)
+        {
             state = STATES.RAGE_CHASE;
         }
+        else if(!isRaged)
+        {
+            if()
+        }
+        
 
-        if (timer > attackDelay)
+        if(canMove)
+        {
+            Movement();
+        }
+        if(timer > 2)
         {
             canAttack = true;
         }
@@ -56,32 +76,34 @@ public class GolemEnemy : GenericEnemy
     {
         switch (state)
         {
-            case STATES.IDLE:
-
-                break;
-
             case STATES.RAGE_IDLE:
-
+                animationHandler.setAnimation(2);
                 break;
 
             case STATES.WANDERING:
-
+                Walking(wanderingSpeed);
+                EnemyRotation();
                 break;
 
             case STATES.RAGE_WANDERING:
-
+                Walking(rageWanderingSpeed);
+                EnemyRotation();
                 break;
 
             case STATES.CHASE:
-
+                Walking(chaseSpeed);
+                EnemyRotation();
                 break;
 
             case STATES.RAGE_CHASE:
-
+                Walking(rageChaseSpeed);
+                EnemyRotation();
                 break;
 
             case STATES.RAGE_ATTACK:
-
+                timer = 0;
+                canAttack = false;
+                animationHandler.setAnimation(5);
                 break;
         }
     }
@@ -96,7 +118,22 @@ public class GolemEnemy : GenericEnemy
 
     private void Walking(int speed)
     {
-        animationHandler.setAnimation(2);
+        if(state == STATES.RAGE_CHASE)
+        {
+            animationHandler.setAnimation(3);
+        }
+        else
+        {
+            animationHandler.setAnimation(4);
+        }
         transform.position += transform.forward * Time.deltaTime * speed;
+    }
+
+    private IEnumerator RageCooldown()
+    {
+        yield return new WaitForSeconds(6);
+        isRaged = false;
+        yield return new WaitForSeconds(2);
+        canRage = true;
     }
 }

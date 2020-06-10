@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SnakeEnemy : GenericEnemy
 {
-    
-
     private void Awake()
     {
         objHealth = GetComponent<ObjectHealth>();

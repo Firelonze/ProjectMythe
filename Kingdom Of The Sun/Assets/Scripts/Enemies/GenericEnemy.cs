@@ -9,10 +9,15 @@ public class GenericEnemy : MonoBehaviour
     [SerializeField] protected int damage;
     [SerializeField] protected int wanderingSpeed;
     [SerializeField] protected int chaseSpeed;
+    [SerializeField] protected int rageChaseSpeed;
+    [SerializeField] protected int rageAttackSpeed;
+    [SerializeField] protected int rageWanderingSpeed;
     [SerializeField] protected int turnSpeed;
     [SerializeField] protected int attackSpeed;
     [SerializeField] protected float attackDelay;
     [SerializeField] protected bool canAttack;
+    [SerializeField] protected bool canMove = true;
+
     [SerializeField] protected Transform[] waypoints;
     [SerializeField] protected Transform curWaypoint;
     [SerializeField] protected float waypointDistance;
@@ -66,5 +71,10 @@ public class GenericEnemy : MonoBehaviour
         */
         animationHandler = GetComponent<AnimationHandler>();
         player = GameObject.Find("Player").GetComponent<Transform>();
+    }
+
+    public void SetCanMove(bool temp_bool)
+    {
+        canMove = temp_bool;
     }
 }
