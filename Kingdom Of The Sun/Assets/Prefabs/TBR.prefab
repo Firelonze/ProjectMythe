@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5202192824915689217}
   m_Layer: 8
   m_Name: TBR
-  m_TagString: Untagged
+  m_TagString: Rooms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

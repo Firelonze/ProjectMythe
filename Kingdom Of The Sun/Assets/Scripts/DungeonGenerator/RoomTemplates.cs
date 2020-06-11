@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class RoomTemplates : MonoBehaviour
 {
-    [SerializeField] protected GameObject[] openTop;
-    [SerializeField] protected GameObject[] openRight;
-    [SerializeField] protected GameObject[] openBottom;
-    [SerializeField] protected GameObject[] openLeft;
+    [SerializeField] protected GameObject[] topRow;
+    [SerializeField] protected GameObject[] bottomRow;
+    [SerializeField] protected GameObject[] leftRow;
+    [SerializeField] protected GameObject[] rightRow;
+
+    [SerializeField] protected GameObject[] topLeftCorner;
+    [SerializeField] protected GameObject[] topRightCorner;
+    [SerializeField] protected GameObject[] bottomLeftCorner;
+    [SerializeField] protected GameObject[] bottomRightCorner;
+
+    [SerializeField] protected GameObject[] center;
+
 }
