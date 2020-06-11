@@ -7,11 +7,6 @@ public class PlayerTurn : MonoBehaviour
     private float speedH = 2.0f;
 
     private float yaw = 0.0f;
-    void Start()
-    {
-
-    }
-
 
     void Update()
     {

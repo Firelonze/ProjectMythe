@@ -108,7 +108,6 @@ public class PlayerMovement : MonoBehaviour
                 //crouch walking
                 case 0:
                     animationHandler.setAnimation(44);
-
                     break;
                 case 1:
                     animationHandler.setAnimation(8);
