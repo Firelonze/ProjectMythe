@@ -64,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
                     animationHandler.setAnimation(5);
                     break;
             }
-            
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && !roll)
@@ -103,24 +102,25 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
+            speed = 1f;
             switch(curWeapon)
             {
+                //crouch walking
                 case 0:
-                    print("Crouch walking");
                     animationHandler.setAnimation(44);
 
                     break;
                 case 1:
-
+                    animationHandler.setAnimation(8);
                     break;
             }
         }
         else if (Input.GetKey(KeyCode.LeftShift))
         {
+            //crouching
             switch (curWeapon)
             {
                 case 0:
-                    print("Crouching");
                     animationHandler.setAnimation(11);
 
                     break;
@@ -131,10 +131,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
+            //Walking
+            speed = 2f;
             switch (curWeapon)
             {
                 case 0:
-                    print("Walking");
                     animationHandler.setAnimation(1);
 
                     break;
@@ -145,10 +146,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            //idle
             switch (curWeapon)
             {
                 case 0:
-                    print("Idle");
                     animationHandler.setAnimation(101);
 
                     break;

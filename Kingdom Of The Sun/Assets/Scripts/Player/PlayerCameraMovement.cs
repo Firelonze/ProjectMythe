@@ -8,7 +8,7 @@ public class PlayerCameraMovement : MonoBehaviour
     
     private float pitch = 0.0f;
     
-    void Update()
+    void LateUpdate()
     {
         pitch -= speedV * Input.GetAxis("Mouse Y");
         

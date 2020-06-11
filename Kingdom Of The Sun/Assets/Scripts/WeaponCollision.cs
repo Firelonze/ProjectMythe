@@ -10,7 +10,7 @@ public class WeaponCollision : MonoBehaviour
 
     private void Start()
     {
-        objectHealth = this.GetComponent<ObjectHealth>();
+        objectHealth = GetComponentInParent<ObjectHealth>();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -10,7 +10,6 @@ public class ObjectHealth : MonoBehaviour
 
     private void Start()
     {
-        health = 200;
         rend = GetComponent<Renderer>();    
     }
 
