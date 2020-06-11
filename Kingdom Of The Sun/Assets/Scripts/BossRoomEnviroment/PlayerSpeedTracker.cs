@@ -13,6 +13,7 @@ public class PlayerSpeedTracker : MonoBehaviour
     protected int movesSpeed;
     void Start()
     {
+        player = gameObject;
         StartCoroutine(CalcVelocity());
     }
 

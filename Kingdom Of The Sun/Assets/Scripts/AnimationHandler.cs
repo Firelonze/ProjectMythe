@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AnimationHandler : MonoBehaviour
 {
-    private Animator animator;
+    [SerializeField] private Animator animator;
 
-    private void Start()
+    private void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     public void setAnimation(int i)
@@ -18,6 +18,11 @@ public class AnimationHandler : MonoBehaviour
         {
             StartCoroutine(Death());
         }
+    }
+
+    public void PlayAnim(string name)
+    {
+        animator.Play(name);
     }
 
     private IEnumerator Death()
@@ -35,5 +40,10 @@ public class AnimationHandler : MonoBehaviour
     public float getAnimationClipLength()
     {
         return animator.GetCurrentAnimatorStateInfo(0).length;
+    }
+
+    public int getAnimationState()
+    {
+        return animator.GetInteger("AnimState");
     }
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private bool roll = false; 
+    private int curWeapon = 0;
+    private bool roll = false;
+    private bool isCrouched = false;
     private float speed = 2f;
     private float gravity = -19.62f;
     [SerializeField] private CharacterController controller;
@@ -21,47 +23,64 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     private bool isGrounded;
 
+    private int curAttack;
+
     public Vector3 velocity;
     void Start()
     {
+        curAttack = 2;
+        st = GetComponent<PlayerSpeedTracker>();
         animationHandler = GetComponent<AnimationHandler>();
         controller = GetComponent<CharacterController>();
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-
-        }
-
         timer += Time.deltaTime;
-        if (timer > 1.5f)
+        if (timer > 0.8f)
         {
             canAttack = true;
         }
+
         movement();
-        if (Input.GetMouseButtonDown(0))
+
+        if (Input.GetMouseButtonDown(0) && canAttack)
         {
             timer = 0;
             canAttack = false;
-            animationHandler.setAnimation(4);
+            switch(curWeapon)
+            {
+                case 0:
+                    animationHandler.setAnimation(curAttack);
+                    curAttack++;
+                    if (curAttack > 4)
+                    {
+                        curAttack = 2;
+                    }
+                    StartCoroutine(AnimationFix());
+                    break;
+
+                case 1:
+                    animationHandler.setAnimation(5);
+                    break;
+            }
+            
         }
+
         if (Input.GetKeyDown(KeyCode.LeftControl) && !roll)
         {
-            roll = true;
-            StartCoroutine(Dodge());
+            
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if(st.GetSpeed() >= 0)
-            {
-                animationHandler.setAnimation(12);
-            }
-            else
-            {
-                animationHandler.setAnimation(11);
-            }
+            animationHandler.PlayAnim("pick_sword");
+            curWeapon = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            animationHandler.PlayAnim("pick_gun");
+            curWeapon = 1;
         }
     }
 
@@ -77,10 +96,68 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        if (x > 0 || z > 0)
+        if(Input.GetKeyDown(KeyCode.LeftControl) && !roll)
         {
-            animationHandler.setAnimation(11);
+            StartCoroutine(Dodge());
         }
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            switch(curWeapon)
+            {
+                case 0:
+                    print("Crouch walking");
+                    animationHandler.setAnimation(44);
+
+                    break;
+                case 1:
+
+                    break;
+            }
+        }
+        else if (Input.GetKey(KeyCode.LeftShift))
+        {
+            switch (curWeapon)
+            {
+                case 0:
+                    print("Crouching");
+                    animationHandler.setAnimation(11);
+
+                    break;
+                case 1:
+                    animationHandler.setAnimation(7);
+                    break;
+            }
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            switch (curWeapon)
+            {
+                case 0:
+                    print("Walking");
+                    animationHandler.setAnimation(1);
+
+                    break;
+                case 1:
+                    animationHandler.setAnimation(8);
+                    break;
+            }
+        }
+        else
+        {
+            switch (curWeapon)
+            {
+                case 0:
+                    print("Idle");
+                    animationHandler.setAnimation(101);
+
+                    break;
+                case 1:
+                    animationHandler.setAnimation(102);
+                    break;
+            }
+        }
+
 
         Vector3 move = transform.right * x + transform.forward * z;
 
@@ -99,10 +176,30 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Dodge()
     {
         speed = 10;
-        animationHandler.setAnimation(6);
-        yield return new WaitForSeconds(1);
+        switch (curWeapon)
+        {
+            case 0:
+                animationHandler.PlayAnim("sword_roll");
+                roll = true;
+                break;
+
+            case 1:
+                animationHandler.PlayAnim("gun_roll");
+                roll = true;
+                break;
+        }
+        
+        yield return new WaitForSeconds(animationHandler.getAnimationClipLength());
         speed = 5;
         roll = false;
+    }
+
+    //This is retarded but i have not time right now to do it cleaner
+    IEnumerator AnimationFix()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        animationHandler.setAnimation(101);
     }
 }
 
