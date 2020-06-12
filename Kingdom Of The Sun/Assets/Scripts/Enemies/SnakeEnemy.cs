@@ -19,7 +19,7 @@ public class SnakeEnemy : GenericEnemy
         canAttack = true;
         state = STATES.WANDERING;
         wanderingSpeed = 2;
-        chaseSpeed = 3;
+        chaseSpeed = 1;
         attackSpeed = 4;
         turnSpeed = 7;
     }
@@ -32,7 +32,6 @@ public class SnakeEnemy : GenericEnemy
 
         if (distance < 30)
         {
-            print("Distance < 15");
             if (distance < 3f)
             {
                 state = STATES.ATTACK;

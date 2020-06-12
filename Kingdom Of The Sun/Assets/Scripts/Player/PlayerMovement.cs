@@ -7,11 +7,13 @@ public class PlayerMovement : MonoBehaviour
     public int curWeapon = 0;
     private bool roll = false;
     private bool isCrouched = false;
-    private float speed = 2f;
+    private float speed = 3f;
     private float gravity = -19.62f;
     [SerializeField] private CharacterController controller;
     private float timer;
     private bool canAttack;
+
+    public GameObject camera;
 
     [SerializeField] private PlayerSpeedTracker st;
 
@@ -66,20 +68,21 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !roll)
-        {
-            
-        }
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            Quaternion target = Quaternion.Euler(0, this.transform.rotation.z, this.transform.rotation.z);
+            transform.rotation = target;
             animationHandler.PlayAnim("pick_sword");
             curWeapon = 0;
+            GetComponent<PlayerCameraMovement>().enabled = false;
+            camera.GetComponentInChildren<PlayerCameraMovement>().enabled = true;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             animationHandler.PlayAnim("pick_gun");
             curWeapon = 1;
+            GetComponent<PlayerCameraMovement>().enabled = true;
+            camera.GetComponentInChildren<PlayerCameraMovement>().enabled = false;
         }
     }
 
@@ -131,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             //Walking
-            speed = 2f;
+            speed = 3f;
             switch (curWeapon)
             {
                 case 0:
