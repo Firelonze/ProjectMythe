@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private int curWeapon = 0;
+    public int curWeapon = 0;
     private bool roll = false;
     private bool isCrouched = false;
     private float speed = 2f;
@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
     void movement()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
         {
@@ -139,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
 
                     break;
                 case 1:
-                    animationHandler.setAnimation(8);
+                    animationHandler.setAnimation(45);
                     break;
             }
         }
@@ -175,6 +175,8 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Dodge()
     {
+        GetComponentInChildren<PlayerCameraMovement>().enabled = false;
+        GetComponent<PlayerTurn>().enabled = false;
         speed = 10;
         switch (curWeapon)
         {
@@ -192,6 +194,8 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(animationHandler.getAnimationClipLength());
         speed = 5;
         roll = false;
+        GetComponentInChildren<PlayerCameraMovement>().enabled = true;
+        GetComponent<PlayerTurn>().enabled = true;
     }
 
     //This is retarded but i have not time right now to do it cleaner
