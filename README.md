@@ -11,16 +11,16 @@ Platform: PC
 | Product  | Link |
 | ------ |  ------ |
 | Link naar online product backlog (Trello) | [Backlog]
-| Logboek (pdf)                             | [Logboek]
-| Game concept doc (pdf)                    | [GameDesignDoc]
+| Logboek                           | [Logboek]
+| Game concept doc                  | [GameDesignDoc]
 |<img width=500/>|<img width=300/>|
    
 #### Producten Werkproces 2
 | Product  | Link |
 | ------ |  ------ |
 | Online Product backlog & Sprint backlog + DoD (Trello)    | [Backlog]
-| Sprint retrospective verslagen (pdf)                      | [RetrospectiveVerslagen]
-| Logboek (pdf)                                             | [Logboek]
+| Sprint retrospective verslagen                     | [RetrospectiveVerslagen]
+| Logboek                                          | [Logboek]
 | Opnames sprint retrospectives (Teams opnames)             | [Folder op teams]
 | Opnames standups (Teams opnames)                          | [Folder op teams]
 |<img width=500/>|<img width=300/>|
@@ -28,11 +28,11 @@ Platform: PC
 #### Producten Werkproces 3
 | Product  | Link |
 | ------ |  ------ |
-| Sprint retrospective verslagen (pdf)  | [RetrospectiveVerslagen]
-| Sprint review verslagen (pdf)         | [ReviewVerslagen]
+| Sprint retrospective verslagen   | [RetrospectiveVerslagen]
+| Sprint review verslagen         | [ReviewVerslagen]
 | Link naar online speelbaar prototype  | [Prototype]
-| Logboek (pdf)                         | [Logboek]
-| Asset planning (pdf)                  | [AssetPlanning]
+| Logboek                         | [Logboek]
+| Asset planning                 | [AssetPlanning]
 |<img width=500/>|<img width=300/>|
 
    [Backlog]: <https://trello.com/b/1tFK2lKM/mythe>
