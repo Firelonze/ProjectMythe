@@ -13,7 +13,8 @@ public class RoomSpawner : RoomTemplates
     private int exitSection;
     private void Start()
     {
-        exitSection = Random.Range(1, 9);
+        exitSection = Random.Range(1, 10);
+        Debug.Log(exitSection);
         SectionSelector();
     }
     private void TileSpawner()
@@ -23,14 +24,14 @@ public class RoomSpawner : RoomTemplates
             case 1:
                 if (currentSection != exitSection)
                 {
-                    Instantiate(section1[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section1[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
                 }
                 else 
                 {
-                    Instantiate(section1Exit[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section1Exit[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
@@ -38,14 +39,14 @@ public class RoomSpawner : RoomTemplates
             case 2:
                 if (currentSection != exitSection)
                 {
-                    Instantiate(section2[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section2[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
                 }
                 else
                 {
-                    Instantiate(section2Exit[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section2Exit[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
@@ -53,14 +54,14 @@ public class RoomSpawner : RoomTemplates
             case 3:
                 if (currentSection != exitSection)
                 {
-                    Instantiate(section3[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section3[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
                 }
                 else
                 {
-                    Instantiate(section3Exit[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section3Exit[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
@@ -68,34 +69,34 @@ public class RoomSpawner : RoomTemplates
             case 4:
                 if (currentSection != exitSection)
                 {
-                    Instantiate(section4[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section4[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
                 }
                 else
                 {
-                    Instantiate(section4Exit[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section4Exit[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
                 }
             case 5:
-                Instantiate(Entrance[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                Instantiate(Entrance[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                 currentSection += 1;
                 SectionSelector();
                 break;
             case 6:
                 if (currentSection != exitSection)
                 {
-                    Instantiate(section6[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section6[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
                 }
                 else
                 {
-                    Instantiate(section6Exit[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section6Exit[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
@@ -103,14 +104,14 @@ public class RoomSpawner : RoomTemplates
             case 7:
                 if (currentSection != exitSection)
                 {
-                    Instantiate(section7[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section7[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
                 }
                 else
                 {
-                    Instantiate(section7Exit[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section7Exit[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
@@ -118,14 +119,16 @@ public class RoomSpawner : RoomTemplates
             case 8:
                 if (currentSection != exitSection)
                 {
-                    Instantiate(section8[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Debug.Log(chosenSection);
+                    Debug.Log(currentSection);
+                    Instantiate(section8[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
                 }
                 else
                 {
-                    Instantiate(section8Exit[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section8Exit[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
                     currentSection += 1;
                     SectionSelector();
                     break;
@@ -133,12 +136,16 @@ public class RoomSpawner : RoomTemplates
             case 9:
                 if (currentSection != exitSection)
                 {
-                    Instantiate(section9[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Debug.Log(chosenSection);
+                    Debug.Log(currentSection);
+                    Instantiate(section9[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
+                    currentSection += 1;
                     break;
                 }
                 else
                 {
-                    Instantiate(section9Exit[chosenSection], sectionsPositions[currentSection].transform.position, Quaternion.identity);
+                    Instantiate(section9Exit[chosenSection], sectionsPositions[currentSection-1].transform.position, Quaternion.identity);
+                    currentSection += 1;
                     break;
                 }
         }
@@ -146,7 +153,7 @@ public class RoomSpawner : RoomTemplates
     }
     private void SectionSelector()
     {
-        chosenSection = Random.Range(0,1);
+        chosenSection = Random.Range(0,2);
         TileSpawner();
     }
 }
