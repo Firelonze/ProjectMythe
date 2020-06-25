@@ -24,4 +24,23 @@ public class RoomTemplates : MonoBehaviour
     [SerializeField] protected GameObject[] section9Exit;
 
     [SerializeField] protected GameObject[] Entrance;
+
+    [SerializeField] protected GameObject[,] section;
+    [SerializeField] protected GameObject[,] exit;
+
+    private void Start()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            
+        }
+
+    }
+
+
+
+
+
+
+
 }
