@@ -38,8 +38,8 @@ ModelImporter:
       name: gun_crouch_idle
       takeName: Take 001
       internalID: 0
-      firstFrame: 440
-      lastFrame: 472
+      firstFrame: 290
+      lastFrame: 350
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

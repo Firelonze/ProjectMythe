@@ -22,9 +22,6 @@ public class Gun : MonoBehaviour
             nextTimeToFire = Time.time + 1f / fireRate;
         }
     }
-
-
-
     void Shoot()
     {
         muzzleFlash.Play();

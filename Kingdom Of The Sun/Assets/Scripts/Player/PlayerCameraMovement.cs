@@ -9,14 +9,14 @@ public class PlayerCameraMovement : MonoBehaviour
     private float pitch = 0.0f;
 
     public Vector3 euler;
-    
-    void Update()
+
+    private void LateUpdate()
     {
         pitch -= speedV * Input.GetAxis("Mouse Y");
-        
-        pitch = Mathf.Clamp(pitch, -60f, 90f);
 
-        transform.eulerAngles = new Vector3(pitch, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
+        pitch = Mathf.Clamp(pitch, -150f, 90f);
+
+        transform.eulerAngles = new Vector3(this.transform.eulerAngles.x, this.transform.eulerAngles.y, pitch);
         euler = new Vector3(pitch - 90, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
     }
 }

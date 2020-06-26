@@ -70,19 +70,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Quaternion target = Quaternion.Euler(0, this.transform.rotation.z, this.transform.rotation.z);
-            transform.rotation = target;
             animationHandler.PlayAnim("pick_sword");
             curWeapon = 0;
-            GetComponent<PlayerCameraMovement>().enabled = false;
-            camera.GetComponentInChildren<PlayerCameraMovement>().enabled = true;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             animationHandler.PlayAnim("pick_gun");
             curWeapon = 1;
-            GetComponent<PlayerCameraMovement>().enabled = true;
-            camera.GetComponentInChildren<PlayerCameraMovement>().enabled = false;
         }
     }
 

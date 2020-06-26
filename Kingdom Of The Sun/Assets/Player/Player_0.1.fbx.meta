@@ -72,7 +72,6 @@ ModelImporter:
   - 77b436a791072574d8c857448780d06d
   - 15f1ff1af3432554fb110d7e37b4a2c0
   - 21648004a17f0324691847c7608e089d
-  - 3fe412b58243fff4fbbec3ed086237f8
   - 586236fc6db5f384390a843844318152
   - e5e4c1aa871ff3448b3e40802822ba3d
   - 3512e9cf09975dd4fb5bffa82e3f3573
@@ -85,7 +84,7 @@ ModelImporter:
   - 56aeb0d3f068e2f46bf5b20ca3d09b64
   - 13f9f72f0699b4c4088c6007f5f677fd
   - eeb428736a5a9094480a383910bb9c50
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
