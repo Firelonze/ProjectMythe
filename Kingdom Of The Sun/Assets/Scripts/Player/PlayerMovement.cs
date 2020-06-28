@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject camera;
 
+    public LeftArmMovement leftShoulder;
+    public ArmMovement rightShoulder;
+
     [SerializeField] private PlayerSpeedTracker st;
 
     private float jumpHeight = 0.5f;
@@ -28,8 +31,12 @@ public class PlayerMovement : MonoBehaviour
     private int curAttack;
 
     public Vector3 velocity;
+
     void Start()
     {
+        //leftShoulder = gameObject.transform.Find("L_shoulder").GetComponent<ArmMovement>();
+        //rightShoulder = gameObject.transform.Find("R_shoulder").GetComponent<ArmMovement>();
+        leftShoulder.enabled = false;
         curAttack = 2;
         st = GetComponent<PlayerSpeedTracker>();
         animationHandler = GetComponent<AnimationHandler>();
@@ -70,11 +77,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            rightShoulder.enabled = true;
+            leftShoulder.enabled = false;
             animationHandler.PlayAnim("pick_sword");
             curWeapon = 0;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            rightShoulder.enabled = false;
+            leftShoulder.enabled = true;
             animationHandler.PlayAnim("pick_gun");
             curWeapon = 1;
         }
@@ -99,7 +110,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
-            speed = 1f;
             switch(curWeapon)
             {
                 //crouch walking
@@ -128,7 +138,6 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             //Walking
-            speed = 3f;
             switch (curWeapon)
             {
                 case 0:
@@ -187,11 +196,11 @@ public class PlayerMovement : MonoBehaviour
                 roll = true;
                 break;
         }
-        
-        yield return new WaitForSeconds(animationHandler.getAnimationClipLength());
+        GetComponentInChildren<PlayerCameraMovement>().enabled = true;
+
+        yield return new WaitForSeconds(animationHandler.getAnimationClipLength() + 1);
         speed = 5;
         roll = false;
-        GetComponentInChildren<PlayerCameraMovement>().enabled = true;
         GetComponent<PlayerTurn>().enabled = true;
     }
 
