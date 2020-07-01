@@ -32,7 +32,6 @@ public class WaypointMovement : MonoBehaviour
             }
             currentWaypoint++;
             target = waypoints[currentWaypoint].transform;
-            Debug.Log(currentWaypoint);
             StartCoroutine(timeOut());
         }
         if(canMove)

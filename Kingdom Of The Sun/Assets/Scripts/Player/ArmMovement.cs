@@ -10,11 +10,13 @@ public class ArmMovement : MonoBehaviour
 
     private Vector3 euler;
 
+    private float pitchA = -15, pitchB = 60;
+
     private void LateUpdate()
     {
         pitch -= speedV * Input.GetAxis("Mouse Y");
 
-        pitch = Mathf.Clamp(pitch, -15f, 60f);
+        pitch = Mathf.Clamp(pitch, pitchA, pitchB);
 
         transform.eulerAngles = new Vector3(-pitch, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
         euler = new Vector3(pitch, this.transform.eulerAngles.y, this.transform.eulerAngles.z);

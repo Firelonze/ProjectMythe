@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectHealth : MonoBehaviour
 {
+    public bool yes;
     private Renderer rend;
     private BloodEffects bloodEffects;
     public int health;
@@ -11,6 +12,15 @@ public class ObjectHealth : MonoBehaviour
     private void Start()
     {
         rend = GetComponent<Renderer>();    
+    }
+
+    private void Update()
+    {
+        if(yes)
+        {
+            yes = false;
+            TakeDamage(0);
+        }
     }
 
     public void setHealth(int n)
@@ -27,7 +37,11 @@ public class ObjectHealth : MonoBehaviour
     {
         Debug.Log(gameObject.name + " health: " + health);
         health -= n;
-        if(health <= 0)
+        if(health <= 0 && gameObject.name.Equals("Player"))
+        {
+            // lose screen
+        }
+        else if (health <= 0)
         {
             Destroy(gameObject);
         }

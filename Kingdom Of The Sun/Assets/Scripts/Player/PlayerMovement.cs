@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private bool roll = false;
     private bool isCrouched = false;
     private float speed = 3f;
-    private float gravity = -19.62f;
+    private float gravity = -9.807f;
     [SerializeField] private CharacterController controller;
     private float timer;
     private bool canAttack;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private PlayerSpeedTracker st;
 
-    private float jumpHeight = 0.5f;
+    private float jumpHeight = 3.5f;
     private AnimationHandler animationHandler;
 
     public Transform groundCheck;
@@ -32,10 +32,16 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 velocity;
 
+    public Gun gun;
+
+    public PlayerFollow playerFollow;
+
+    ObjectHealth objHealth;
+
     void Start()
     {
-        //leftShoulder = gameObject.transform.Find("L_shoulder").GetComponent<ArmMovement>();
-        //rightShoulder = gameObject.transform.Find("R_shoulder").GetComponent<ArmMovement>();
+        objHealth = GetComponent<ObjectHealth>();
+        gun.enabled = false;
         leftShoulder.enabled = false;
         curAttack = 2;
         st = GetComponent<PlayerSpeedTracker>();
@@ -45,6 +51,23 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+        //print(Vector3.Dot(forward, toOther));
+
+        //bool fuck = Vector3.Dot(playerFollow.transform.position - transform.position, transform.right) > 0;
+
+
+
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
         timer += Time.deltaTime;
         if (timer > 0.8f)
         {
@@ -57,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         {
             timer = 0;
             canAttack = false;
-            switch(curWeapon)
+            switch (curWeapon)
             {
                 case 0:
                     animationHandler.setAnimation(curAttack);
@@ -81,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
             leftShoulder.enabled = false;
             animationHandler.PlayAnim("pick_sword");
             curWeapon = 0;
+            gun.enabled = false;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -88,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
             leftShoulder.enabled = true;
             animationHandler.PlayAnim("pick_gun");
             curWeapon = 1;
+            gun.enabled = true;
         }
     }
 
@@ -103,14 +128,14 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        if(Input.GetKeyDown(KeyCode.LeftControl) && !roll)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !roll)
         {
             StartCoroutine(Dodge());
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
-            switch(curWeapon)
+            switch (curWeapon)
             {
                 //crouch walking
                 case 0:
@@ -210,6 +235,14 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         animationHandler.setAnimation(101);
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.layer == 17)
+        {
+            objHealth.TakeDamage(20);
+        }
     }
 }
 
