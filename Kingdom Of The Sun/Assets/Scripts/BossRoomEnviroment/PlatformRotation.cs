@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
+using TMPro;
 using UnityEngine;
 
 public class PlatformRotation : PlayerSpeedTracker
 {
-    private bool playerXisLess = false;
-    private bool playerZisLess = false;
+    public PlayerMovement playerMovement;
+    public PlayerFollow playerFollow;
+
     private bool allowRotate = false;
     private bool clockWise = true;
 
@@ -16,32 +17,16 @@ public class PlatformRotation : PlayerSpeedTracker
     // human vision = 90 to 100 degrees so 135 -50 & 135 + 50 = y Rotation limitations
     private void Update()
     {
-        if (playerPosition != player.transform.position)
-        {
-            playerPosition = player.transform.position;
-        }
-        if (playerRotation != player.transform.rotation)
-        {
-            playerRotation = player.transform.rotation;
-            if (playerRotation.y < -180)
-            {
-                Mathf.Abs(playerRotation.y);
-            }
-            if (playerRotation.y > 180)
-            {
-                playerRotation.y -= 360;
-            }
-        }
         if (allowRotate == true)
         {
             RotatePlatform();
-            if (clockWise == true)
+            if (clockWise == false)
             {
                 transform.Rotate(0, movesSpeed /= 3, 0);
             }
-            else if(clockWise == false)
+            else if (clockWise == true)
             {
-                transform.Rotate(0, (movesSpeed /= 3) *-1, 0);
+                transform.Rotate(0, (movesSpeed /= 3) * -1, 0);
             }
         }
     }
@@ -62,79 +47,7 @@ public class PlatformRotation : PlayerSpeedTracker
 
     private void RotatePlatform()
     {
-        if (playerPosition.x < this.transform.position.x)
-        {
-            playerXisLess = true;
-        }
-        else if (playerPosition.x > this.transform.position.x)
-        {
-            playerXisLess = false;
-        }
-        if (playerPosition.z < this.transform.position.z)
-        {
-            playerZisLess = true;
-        }
-        else if (playerPosition.z > this.transform.position.z)
-        {
-            playerZisLess = false;
-        }
-        switch (playerXisLess)
-        {
-            //left bottom corner
-            case (true):
-                switch (playerZisLess) { 
-                    case (true):
-                        Debug.Log("Case1");
-                        if (playerRotation.y < -35 && playerRotation.y > 65)
-                        {
-                            clockWise = true;
-                        }
-                        else if (playerRotation.y < (-125) && playerRotation.y > (-25))
-                        {
-                            clockWise = false;
-                        }
-                    break;
-                    case (false):
-                        //Debug.Log("Case2");
-                        if (playerRotation.y < 155 && playerRotation.y > 55)
-                        {
-                            clockWise = true;
-                        }
-                        else if (playerRotation.y < 35 && playerRotation.y > -115)
-                        {
-                            clockWise = false;
-                        }
-                        break;
-                }
-                break;
-            //right bottom corner
-            case (false):
-                switch (playerZisLess)
-                {
-                    case (true):
-                        //Debug.Log("Case3");
-                        if (playerRotation.y < -35 && playerRotation.y > -135)
-                        {
-                            clockWise = true;
-                        }
-                        else if (playerRotation.y < (-65) && playerRotation.y > (35))
-                        {
-                            clockWise = false;
-                        }
-                        break;
-                    case(false):
-                        //Debug.Log("Case4");
-                        if (playerRotation.y < 115 && playerRotation.y > 15)
-                        {
-                            clockWise = true;
-                        }
-                        else if (playerRotation.y < (-125) && playerRotation.y > (-25))
-                        {
-                            clockWise = false;
-                        }
-                    break;
-                }
-                break;
-        }
+        
+        clockWise = Vector3.Dot(playerFollow.transform.position - playerMovement.gameObject.transform.position, playerMovement.gameObject.transform.right) > 0;
     }
 }

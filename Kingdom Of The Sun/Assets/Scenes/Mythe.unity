@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 158117513}
   - component: {fileID: 158117515}
   m_Layer: 5
-  m_Name: BloodEffect
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -600,7 +600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1101430695
 Transform:
   m_ObjectHideFlags: 0
@@ -712,7 +712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1518728440
 Transform:
   m_ObjectHideFlags: 0
@@ -740,6 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c8d569989dcfd84e9b9330dca0b6d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yes: 0
   health: 0
 --- !u!54 &1518728442
 Rigidbody:
@@ -795,6 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c1205e0050d4d4881720f1f6ed7ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!114 &1518728446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,15 +812,21 @@ MonoBehaviour:
   damage: 0
   wanderingSpeed: 0
   chaseSpeed: 0
+  rageChaseSpeed: 0
+  rageAttackSpeed: 0
+  rageWanderingSpeed: 0
   turnSpeed: 0
   attackSpeed: 0
   attackDelay: 0
-  state: 0
   canAttack: 0
   waypoints: []
+  curWaypoint: {fileID: 0}
   waypointDistance: 0
+  currentWaypoint: 0
   player: {fileID: 1575929935}
   audioHandler: {fileID: 0}
+  animationHandler: {fileID: 0}
+  state: 0
   distance: 0
   debugMats: []
 --- !u!1 &1575929935 stripped
@@ -3141,6 +3149,31 @@ PrefabInstance:
     - target: {fileID: 5822892116716665305, guid: d6b1960056b3245459f7834ee0e664d8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822892116716665306, guid: d6b1960056b3245459f7834ee0e664d8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822892116716665307, guid: d6b1960056b3245459f7834ee0e664d8,
+        type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822892116716665307, guid: d6b1960056b3245459f7834ee0e664d8,
+        type: 3}
+      propertyPath: yes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822892116716665308, guid: d6b1960056b3245459f7834ee0e664d8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822892116716665311, guid: d6b1960056b3245459f7834ee0e664d8,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

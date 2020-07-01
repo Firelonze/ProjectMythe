@@ -10,22 +10,17 @@ public class BloodEffects : MonoBehaviour
 
     private int randomizer;
 
-    private float decrease = 0.01f;
-
     private void Awake()
     {
         image = GetComponent<Image>();
     }
 
-    private void Start()
-    {
-        BloodEffect();
-    }
-
     public void BloodEffect()
     {
-        randomizer = Random.Range(0, 2);
+        Debug.Log("German empire");
+        randomizer = Random.Range(0, 3);
         image.sprite = images[randomizer];
+        Debug.Log(image.sprite.name);
         StartCoroutine(Fade());
     }
 
@@ -33,6 +28,7 @@ public class BloodEffects : MonoBehaviour
     {
         Color temp = image.color;
         temp.a = 0.85f;
+        image.color = temp;
         while (image.color.a > 0)
         {
             yield return new WaitForSeconds(0.0001f);

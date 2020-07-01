@@ -7,13 +7,12 @@ using UnityEngine.PlayerLoop;
 public class PlayerSpeedTracker : MonoBehaviour
 {
     [SerializeField] protected GameObject player;
-    protected Vector3 playerPosition;
-    protected Quaternion playerRotation;
+    [SerializeField] protected Vector3 playerPosition;
+    protected Vector3 playerRotation;
     private Vector3 lastPos;
     protected int movesSpeed;
     void Start()
     {
-        player = gameObject;
         StartCoroutine(CalcVelocity());
     }
 

@@ -11,8 +11,6 @@ public class BossTrain : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         StartCoroutine(start());
-
-        StartCoroutine(Destroy());
     }
 
     void Update()
@@ -31,27 +29,27 @@ public class BossTrain : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 9) 
-        {
-            // palyer health er af
-        }
-        if (other.gameObject.layer == 10) 
+        if (other.gameObject.layer == 14) 
         {
             // boss neemt damage
             // boss gaat weg
-            // boss reappear
+            // boss 
+            GameObject Boss = GameObject.Find("Boss");
+            Boss.GetComponent<BossHealth>().health -= 1;
+            Boss.GetComponent<BossAttacks>().reappear();
+            Destroy();
         }
-        if (other.gameObject.layer == 11) 
+        if (other.gameObject.layer == 9) 
         {
-            //andere baas weer aan
-            // voer reappear void uit
-            // boss despawned
+            Destroy(this.gameObject);
         }
     }
 
     private IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(5);
+        GetComponent<Animator>().Play("damage");
+        AnimationClip[] clips = GetComponent<Animator>().runtimeAnimatorController.animationClips;
+        yield return new WaitForSeconds(clips[0 /* death anim clip number */].length);
         Destroy(gameObject);
     }
 }
