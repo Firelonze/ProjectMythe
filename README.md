@@ -25,15 +25,15 @@ Platform: PC
 | Opnames standups (Teams opnames)                          | [Folder op teams]
 |<img width=500/>|<img width=300/>|
    
-[comment]: <> #### Producten Werkproces 3
-[comment]: <> | Product  | Link |
-[comment]: <> | ------ |  ------ |
-[comment]: <> | Sprint retrospective verslagen   | [RetrospectiveVerslagen]
-[comment]: <> | Sprint review verslagen         | [ReviewVerslagen]
-[comment]: <> | Link naar online speelbaar prototype  | [Prototype]
-[comment]: <> | Logboek                         | [Logboek]
-[comment]: <> | Asset planning                 | [AssetPlanning]
-[comment]: <> |<img width=500/>|<img width=300/>|
+#### Producten Werkproces 3
+| Product  | Link |
+| ------ |  ------ |
+| Sprint retrospective verslagen   | [RetrospectiveVerslagen]
+| Sprint review verslagen         | [ReviewVerslagen]
+| Link naar online speelbaar prototype  | [Prototype]
+| Logboek                         | [Logboek]
+| Asset planning                 | [AssetPlanning]
+|<img width=500/>|<img width=300/>|
 
    [Backlog]: <https://trello.com/b/1tFK2lKM/mythe>
    [Logboek]: <https://onedrive.live.com/view.aspx?resid=673EF4D842B3925E!860&ithint=file%2cxlsx&wdLOR=c20164778-469A-4893-BDAA-AD1D04A3FF0C&authkey=!ALABPiIgWp5mWw8>
