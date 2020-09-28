@@ -25,7 +25,7 @@ Platform: PC
 | Opnames standups (Teams opnames)                          | [Folder op teams]
 |<img width=500/>|<img width=300/>|
    
-#### Producten Werkproces 3
+/*#### Producten Werkproces 3
 | Product  | Link |
 | ------ |  ------ |
 | Sprint retrospective verslagen   | [RetrospectiveVerslagen]
@@ -34,7 +34,7 @@ Platform: PC
 | Logboek                         | [Logboek]
 | Asset planning                 | [AssetPlanning]
 |<img width=500/>|<img width=300/>|
-
+*/
    [Backlog]: <https://trello.com/b/1tFK2lKM/mythe>
    [Logboek]: <https://onedrive.live.com/view.aspx?resid=673EF4D842B3925E!860&ithint=file%2cxlsx&wdLOR=c20164778-469A-4893-BDAA-AD1D04A3FF0C&authkey=!ALABPiIgWp5mWw8>
    [GameDesignDoc]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/GameDesignDoc.pdf>
