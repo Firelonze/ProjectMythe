@@ -16,7 +16,6 @@ Platform: PC
 | ------ |  ------ |
 | Online Product backlog & Sprint backlog + DoD (Trello)    | [Backlog]
 | Sprint retrospective verslagen                     | [RetrospectiveVerslagen]
-| Logboek                                          | [Logboek]
 | Opnames sprint retrospectives (Teams opnames)             | [Folder op teams]
 | Opnames standups (Teams opnames)                          | [Folder op teams]
 |<img width=500/>|<img width=300/>|
@@ -26,8 +25,6 @@ Platform: PC
 | ------ |  ------ |
 | Sprint retrospective verslagen   | [RetrospectiveVerslagen]
 | Sprint review verslagen         | [ReviewVerslagen]
-| Link naar online speelbaar prototype  | [Prototype]
-| Logboek                         | [Logboek]
 | Asset planning                 | [AssetPlanning]
 |<img width=500/>|<img width=300/>|
 
