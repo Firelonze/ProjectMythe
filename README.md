@@ -9,7 +9,6 @@ Platform: PC
 | ------ |  ------ |
 | Link naar online product backlog (Trello) | [Backlog]
 | Logboek                           | [Logboek]
-| Game concept doc                  | [GameDesignDoc]
 |<img width=500/>|<img width=300/>|
    
 #### Producten Werkproces 2
