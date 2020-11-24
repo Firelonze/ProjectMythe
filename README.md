@@ -3,9 +3,6 @@ Project team: 6: Lucas Baneke, Bobby van Wordragen, Maria Glowacka, Teun Bruin, 
 
 Platform: PC
 
-### Korte omschrijving van de game
-...
-
 ---
 #### Producten Werkproces 1
 | Product  | Link |
