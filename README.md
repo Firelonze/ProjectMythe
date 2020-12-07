@@ -16,16 +16,6 @@ Platform: PC
 | ------ |  ------ |
 | Online Product backlog & Sprint backlog + DoD (Trello)    | [Backlog]
 | Sprint retrospective verslagen                     | [RetrospectiveVerslagen]
-| Opnames sprint retrospectives (Teams opnames)             | [Folder op teams]
-| Opnames standups (Teams opnames)                          | [Folder op teams]
-|<img width=500/>|<img width=300/>|
-   
-#### Producten Werkproces 3
-| Product  | Link |
-| ------ |  ------ |
-| Sprint retrospective verslagen   | [RetrospectiveVerslagen]
-| Sprint review verslagen         | [ReviewVerslagen]
-| Asset planning                 | [AssetPlanning]
 |<img width=500/>|<img width=300/>|
 
    [Backlog]: <https://trello.com/b/1tFK2lKM/mythe>
